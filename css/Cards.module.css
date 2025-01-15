@@ -1,0 +1,288 @@
+/* CardViewer.tsx */
+.cardButton {
+  & {
+    all: unset
+  }
+  &:hover {
+    cursor: zoom-in
+  }
+}
+
+.cardButtonModal {
+  & {
+    all: unset
+  }
+  &:hover {
+    cursor: zoom-out
+  }
+}
+
+.cardModal {
+  padding: 0;
+  :global(.mantine-Modal-root),
+  :global(.mantine-Modal-content) {
+    overflow: hidden;
+    height: calc(var(--card-height) * var(--card-modal-scale));
+    width: calc(var(--card-width) * var(--card-modal-scale));
+    background-color: transparent;
+    flex: none;
+  }
+  :global(.mantine-Modal-body) {
+    padding: 0;
+  }
+}
+
+.cardInModal {
+  display: flex;
+  height: var(--card-height);
+  width: var(--card-width);
+  padding: var(--card-margin) * -1;
+  transition: transform 0.1s ease-in-out;
+  transform: scale(var(--card-modal-scale));
+  transform-origin: top left;
+}
+
+.cardInModal .cardContainer {
+  margin: 0;
+  &:hover {
+    transform: scale(1)
+  }
+}
+/******************/
+
+.allCardsContainer {
+  height: 100%;
+  width: 100%;
+}
+
+.allCardsContainer h2 {
+  margin-left: 14px;
+  margin-bottom: 6px;
+  color: light-dark(var(--mantine-color-primary-9), var(--mantine-color-primary-0))
+}
+
+.cardContainer {
+  position: relative;
+  flex-shrink: 0;
+  height: var(--card-height);
+  width: var(--card-width);
+  margin: var(--card-margin);
+  transition: transform 0.1s ease-in-out;
+}
+
+.cardContainer:hover {
+  transform: scale(var(--card-hover-scale))
+}
+
+.card {
+  font-family: Conduit ITC;
+  color: var(--mantine-color-black);
+  background-image: none;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  border: 1px solid var(--mantine-color-black);
+  border-radius: var(--card-border-radius);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-transform: uppercase;
+  height: 75px;
+  letter-spacing: 1;
+  padding-top: 16px;
+  color: var(--mantine-color-white);
+  border-top-left-radius: var(--card-border-radius);
+  border-top-right-radius: var(--card-border-radius);
+}
+
+.cardType {
+  height: 16px;
+  padding-top: 2px;
+  font-size: var(--card-type-font-size);
+}
+
+.cardTitle {
+  font-size: var(--card-title-font-size);
+}
+
+.cardFlavorBodyContainer {
+  padding-top: 6px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: var(--mantine-color-black);
+}
+
+.cardFlavor {
+  text-align: center;
+  font-family: Conduit ITC Italic;
+  font-size: var(--card-flavor-font-size);
+  line-height: var(--card-line-height);
+}
+
+.cardFlavorSmall {
+  font-size: var(--card-flavor-font-size-small) !important;
+}
+
+.cardFlavorDottedLine {
+  font-family: consolas;
+  font-size: 7pt;
+  letter-spacing: -1.28px;
+  height: 12px;
+  padding: 0;
+  margin-left: -2px;
+  margin-right: -2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardBody {
+  padding: 3px;
+  margin-top: -9px;
+  font-family: Conduit ITC Light;
+  font-size: var(--card-body-font-size);
+  line-height: var(--card-line-height);
+}
+
+.cardBodyPrimaryMission {
+  font-size: var(--card-body-primary-mission-font-size); /* Text on primary mission cards is a bit smaller */
+}
+
+.cardBodySmallSecondaryMission {
+  font-size: var(--card-body-secondary-mission-small-font-size);
+}
+
+.cardBodySmallSecondaryMission p {
+  line-height: var(--card-line-height-tall);
+}
+
+.cardBody p {
+  margin: 8px 0;
+}
+
+.cardFixedIcon {
+  position: absolute;
+  bottom: 18px;
+  left: 19px;
+  height: 26px;
+}
+
+.cardFixedIcon img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* Styles used in the card body itself, only used in @/app/cards/leviathan_cards.tsx */
+.primaryMissionHeader {
+  font-size: var(--card-body-font-size);
+  background-color: var(--mantine-color-primary_mission_header-1);
+  color: var(--mantine-color-white);
+  text-align: center;
+  vertical-align: center;
+  margin-top: 8px;
+  margin-bottom: -2px;
+  letter-spacing: 0px;
+  height: 12px;
+  line-height: var(--card-line-height);
+  font-weight: 500;
+}
+
+.missionCardList {
+  list-style-type: square;
+  list-style-position: outside;
+  padding-inline-start: 1.4em;
+  margin: 2px;
+  margin-right: 0;
+  margin-top: 7px;
+}
+
+.missionCardList li {
+  width: calc(100% + 1px);
+}
+
+.missionCardList li::marker {
+  font-size: 10pt;
+  padding-top: 0px;
+}
+
+.missionCardList li span:first {
+  position: relative;
+  left: -0.38em;
+}
+
+.cardKeyword {
+  font-family: 'Conduit ITC ExtraBold';
+  display: inline-block;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1em;
+}
+.cardKeyword::first-letter {
+  font-size: 1.2em;
+}
+
+/* Card classes to apply background images */
+.cardBackDeployment {
+  background-image: url('/cards/Deployment_Back.png');
+}
+.cardFrontDeploymentCrucibleOfBattle {
+  background-image: url('/cards/Deployment_Crucible_of_Battle.png')
+}
+.cardFrontDeploymentDawnOfWar {
+  background-image: url('/cards/Deployment_Dawn_of_War.png')
+}
+.cardFrontDeploymentHammerAndAnvil {
+  background-image: url('/cards/Deployment_Hammer_and_Anvil.png')
+}
+.cardFrontDeploymentSearchAndDestroy {
+  background-image: url('/cards/Deployment_Search_and_Destroy.png')
+}
+.cardFrontDeploymentSweepingEngagement {
+  background-image: url('/cards/Deployment_Sweeping_Engagement.png')
+}
+
+.cardBackMissionRule {
+  background-image: url('/cards/Mission_Rule_Back.png');
+}
+.cardFrontMissionRule {
+  background-image: url('/cards/Mission_Rule_Front.png');
+}
+
+.cardBackPrimaryMission {
+  background-image: url('/cards/Primary_Mission_Back.png');
+}
+.cardFrontPrimaryMission {
+  background-image: url('/cards/Primary_Mission_Front.png');
+}
+
+.cardBackAttackerSecondaryMission {
+  background-image: url('/cards/Attacker_Secondary_Back.png');
+}
+.cardBackDefenderSecondaryMission {
+  background-image: url('/cards/Defender_Secondary_Back.png');
+}
+.cardFrontAttackerSecondaryMission {
+  background-image: url('/cards/Attacker_Secondary_Front.png');
+}
+.cardFrontDefenderSecondaryMission {
+  background-image: url('/cards/Defender_Secondary_Front.png');
+}
+
+.cardBackAttackerGambit {
+  background-image: url('/cards/Attacker_Gambit_Back.png')
+}
+.cardBackDefenderGambit {
+  background-image: url('/cards/Defender_Gambit_Back.png')
+}
+.cardFrontAttackerGambit {
+  background-image: url('/cards/Attacker_Gambit_Front.png')
+}
+.cardFrontDefenderGambit {
+  background-image: url('/cards/Defender_Gambit_Front.png')
+}
+/* End card classes for background images */

@@ -1,0 +1,43 @@
+.headerContainer {
+  background-color: light-dark(var(--mantine-primary-color-5), var(--mantine-primary-color-6));
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.headerContainerFlex {
+  display: inline-flex;
+  align-items: center;
+  flex-grow: 1;
+  height: 100%;
+}
+
+.headerTitle {
+  width: 246px;
+  font-family: Conduit ITC ExtraBold;
+  color: light-dark(var(--mantine-primary-color-9), var(--mantine-primary-color-1));
+  font-size: 24pt;
+  height: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.verticalSplit {
+  height: 75%;
+  margin-left: 16px;
+  margin-right: 16px;
+  border-left: 2px solid light-dark(var(--mantine-primary-color-9), var(--mantine-primary-color-1));
+}
+
+.breadcrumbs {
+  &,
+  :global(.mantine-Breadcrumbs-separator),
+  :global(.mantine-Breadcrumbs-breadcrumb) {
+    color: light-dark(var(--mantine-primary-color-9), var(--mantine-primary-color-1));
+    font-family: Conduit ITC Bold;
+    font-size: 22pt;
+  }
+}

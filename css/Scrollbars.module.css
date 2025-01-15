@@ -1,0 +1,23 @@
+/* Styling for @mantine/core ScrollArea's scrollbars. */
+
+.scrollbar {
+  &[data-orientation='vertical'],
+  &[data-orientation='horizontal'] {
+    border-radius: 6px !important;
+    background-color: transparent !important;
+  }
+
+  &[data-orientation='vertical']:hover,
+  &[data-orientation='horizontal']:hover {
+    background-color: light-dark(var(--mantine-color-primary-5), var(--mantine-color-primary-4)) !important;
+  }
+}
+
+.thumb {
+  & {
+    background-color: light-dark(var(--mantine-color-primary-7), var(--mantine-color-primary-3)) !important;
+  }
+  &:hover {
+    background-color: light-dark(var(--mantine-color-primary-9), var(--mantine-color-primary-2)) !important;
+  }
+}

@@ -1,0 +1,20 @@
+.buttonContainer {
+  width: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.themeToggleButton {
+  padding: 0px;
+  padding-inline: 6px !important;
+  height: 50px;
+  width: 50px;
+  /* Used to place button text underneath icon */
+  :global(.mantine-Button-inner) {
+    :global(.mantine-Button-label) {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+  }
+}
