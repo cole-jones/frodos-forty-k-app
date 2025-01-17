@@ -1,7 +1,7 @@
 'use server'
 
 import { ScrollArea } from "@mantine/core"
-import { leviathanCards } from "@/app/cards/leviathan/leviathan_cards"
+import { leviathanCards } from "@/app/cards/(all_cards)/leviathan/leviathan_cards"
 import CardList from "@/components/Cards/CardList"
 import cardStyles from "@/css/Cards.module.css"
 import scrollbarStyles from "@/css/Scrollbars.module.css"

@@ -1,6 +1,6 @@
 'use server'
 
-import { MissionCard } from "@/app/cards/leviathan/leviathan_cards"
+import { MissionCard } from "@/app/cards/(all_cards)/leviathan/leviathan_cards"
 import cardStyles from "@/css/Cards.module.css"
 import { capitalizeEachWord } from "@/utils/utility_functions"
 

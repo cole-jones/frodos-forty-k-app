@@ -6,7 +6,10 @@ import { ColorSchemeScript, mantineHtmlProps } from '@mantine/core'
 
 
 export const metadata = {
-  title: "Frodo's Forty-K",
+  title: {
+    template: "%s | Frodo's Forty-K",
+    default: "Home"
+  },
   description: "Slapdash attempt at creating a WH40k companion app.",
 };
 

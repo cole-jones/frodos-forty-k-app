@@ -1,4 +1,4 @@
-import { MissionCard } from "@/app/cards/leviathan/leviathan_cards"
+import { MissionCard } from "@/app/cards/(all_cards)/leviathan/leviathan_cards"
 import Card from "@/components/Cards/Card"
 import CardViewer from "@/components/Cards/CardViewer"
 import { Suspense } from "react"

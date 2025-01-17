@@ -1,7 +1,8 @@
 'use server'
 
 import Link from 'next/link';
-import AppHeaderBreadcrumbs from './Breadcrumbs';
+import { Anchor } from '@mantine/core';
+import AppHeaderBreadcrumbs from '@/components/AppHeader/Breadcrumbs';
 import { ColorSchemeToggle } from '@/components/ColorSchemeToggle/ColorSchemeToggle';
 import homeStyles from '@/css/Home.module.css'
 
@@ -17,6 +18,14 @@ export async function AppHeader() : Promise<JSX.Element> {
         </Link>
         <div className={homeStyles.verticalSplit} />
         <AppHeaderBreadcrumbs />
+      </div>
+      <div className={homeStyles.navLinks}>
+        <Anchor component={Link} href="/match" key={0}>
+          Match
+        </Anchor>
+        <Anchor component={Link} href="/cards" key={1}>
+          Cards
+        </Anchor>
       </div>
       <ColorSchemeToggle />
     </div>
