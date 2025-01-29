@@ -1,10 +1,11 @@
 'use server'
 
 import { MissionCard } from "@/app/cards/(all_cards)/leviathan/leviathan_cards"
+import { CardVariants } from "@/components/Cards/AllCards"
 import cardStyles from "@/css/Cards.module.css"
 import { capitalizeEachWord } from "@/utils/utility_functions"
 
-export default async function Card({ card, variant } : { card: MissionCard, variant: "Attacker" | "Defender" | null | undefined }) : Promise<JSX.Element> {
+export default async function Card({ card, variant = "untyped" } : { card: MissionCard, variant?: CardVariants }) : Promise<React.ReactNode> {
   /**
    * Render a single MissionCard from the Leviathan deck.
    * 
@@ -25,7 +26,7 @@ export default async function Card({ card, variant } : { card: MissionCard, vari
       classString += ` ${cardStyles[`cardFront${card.type.replace(' ', '')}`]}`
     }
     else {
-      classString += ` ${cardStyles[`cardFront${variant}${card.type.replace(' ', '')}`]}`
+      classString += ` ${cardStyles[`cardFront${variant[0].toUpperCase() + variant.slice(1)}${card.type.replace(' ', '')}`]}`
     }
     return classString
   }

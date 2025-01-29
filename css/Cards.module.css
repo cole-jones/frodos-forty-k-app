@@ -72,19 +72,11 @@
 /* CardViewer.tsx */
 .cardButton {
   & {
-    all: unset
+    all: unset;
+    user-select: none;
   }
   &:hover {
-    cursor: zoom-in
-  }
-}
-
-.cardButtonModal {
-  & {
-    all: unset
-  }
-  &:hover {
-    cursor: zoom-out
+    cursor: zoom-in;
   }
 }
 
@@ -117,6 +109,22 @@
   margin: 0;
   &:hover {
     transform: scale(1)
+  }
+}
+
+.cardInModal .cardButton {
+  & {
+    all: unset;
+    user-select: text;
+  }
+  &:hover {
+    cursor: default;
+  }
+}
+
+.cardInModal .cardButton > div > div > div > div {
+  &:hover {
+    cursor: text !important;
   }
 }
 /******************/
@@ -247,6 +255,10 @@
   max-height: 100%;
 }
 
+.cardList {
+  display: flex;
+  flex-direction: row;
+}
 /* Styles used in the card body itself, only used in @/app/cards/leviathan_cards.tsx */
 .primaryMissionHeader {
   font-size: var(--card-body-font-size);
@@ -299,61 +311,61 @@
 
 /* Card classes to apply background images */
 .cardBackDeployment {
-  background-image: url('/cards/Deployment_Back.png');
+  background-image: url('/cards/leviathan/Leviathan_Deployment_Back.jpg')
 }
 .cardFrontDeploymentCrucibleOfBattle {
-  background-image: url('/cards/Deployment_Crucible_of_Battle.png')
+  background-image: url('/cards/leviathan/Leviathan_Deployment_Crucible_of_Battle.jpg')
 }
 .cardFrontDeploymentDawnOfWar {
-  background-image: url('/cards/Deployment_Dawn_of_War.png')
+  background-image: url('/cards/leviathan/Leviathan_Deployment_Dawn_of_War.jpg')
 }
 .cardFrontDeploymentHammerAndAnvil {
-  background-image: url('/cards/Deployment_Hammer_and_Anvil.png')
+  background-image: url('/cards/leviathan/Leviathan_Deployment_Hammer_and_Anvil.jpg')
 }
 .cardFrontDeploymentSearchAndDestroy {
-  background-image: url('/cards/Deployment_Search_and_Destroy.png')
+  background-image: url('/cards/leviathan/Leviathan_Deployment_Search_and_Destroy.jpg')
 }
 .cardFrontDeploymentSweepingEngagement {
-  background-image: url('/cards/Deployment_Sweeping_Engagement.png')
+  background-image: url('/cards/leviathan/Leviathan_Deployment_Sweeping_Engagement.jpg')
 }
 
 .cardBackMissionRule {
-  background-image: url('/cards/Mission_Rule_Back.png');
+  background-image: url('/cards/leviathan/Leviathan_Mission_Rule_Back.jpg');
 }
 .cardFrontMissionRule {
-  background-image: url('/cards/Mission_Rule_Front.png');
+  background-image: url('/cards/leviathan/Leviathan_Mission_Rule_Front.jpg');
 }
 
 .cardBackPrimaryMission {
-  background-image: url('/cards/Primary_Mission_Back.png');
+  background-image: url('/cards/leviathan/Leviathan_Primary_Mission_Back.jpg');
 }
 .cardFrontPrimaryMission {
-  background-image: url('/cards/Primary_Mission_Front.png');
+  background-image: url('/cards/leviathan/Leviathan_Primary_Mission_Front.jpg');
 }
 
 .cardBackAttackerSecondaryMission {
-  background-image: url('/cards/Attacker_Secondary_Back.png');
+  background-image: url('/cards/leviathan/Leviathan_Secondary_Mission_Back_(Attacker).jpg');
 }
 .cardBackDefenderSecondaryMission {
-  background-image: url('/cards/Defender_Secondary_Back.png');
+  background-image: url('/cards/leviathan/Leviathan_Secondary_Mission_Back_(Defender).jpg');
 }
 .cardFrontAttackerSecondaryMission {
-  background-image: url('/cards/Attacker_Secondary_Front.png');
+  background-image: url('/cards/leviathan/Leviathan_Secondary_Mission_Front_(Attacker).jpg');
 }
 .cardFrontDefenderSecondaryMission {
-  background-image: url('/cards/Defender_Secondary_Front.png');
+  background-image: url('/cards/leviathan/Leviathan_Secondary_Mission_Front_(Defender).jpg');
 }
 
 .cardBackAttackerGambit {
-  background-image: url('/cards/Attacker_Gambit_Back.png')
+  background-image: url('/cards/leviathan/Leviathan_Gambit_Back_(Attacker).jpg')
 }
 .cardBackDefenderGambit {
-  background-image: url('/cards/Defender_Gambit_Back.png')
+  background-image: url('/cards/leviathan/Leviathan_Gambit_Back_(Defender).jpg')
 }
 .cardFrontAttackerGambit {
-  background-image: url('/cards/Attacker_Gambit_Front.png')
+  background-image: url('/cards/leviathan/Leviathan_Gambit_Front_(Attacker).jpg')
 }
 .cardFrontDefenderGambit {
-  background-image: url('/cards/Defender_Gambit_Front.png')
+  background-image: url('/cards/leviathan/Leviathan_Gambit_Front_(Defender).jpg')
 }
 /* End card classes for background images */

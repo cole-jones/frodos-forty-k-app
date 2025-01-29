@@ -2,12 +2,13 @@
 
 import { ScrollArea } from "@mantine/core"
 import { leviathanCards } from "@/app/cards/(all_cards)/leviathan/leviathan_cards"
-import CardList from "@/components/Cards/CardList"
+import { AllCards } from "@/components/Cards/AllCards"
+import CardViewer from "@/components/Cards/CardViewer"
 import cardStyles from "@/css/Cards.module.css"
 import scrollbarStyles from "@/css/Scrollbars.module.css"
 import "@/css/Cards.css"
 
-export default async function AllCards(): Promise<React.ReactNode> {
+export default async function LeviathanCardShowcase(): Promise<React.ReactNode> {
   /**
    * Lists all cards from @/app/cards/leviathan_cards.tsx,
    * both Attacker and Defender for Secondary Missions and Gambits.
@@ -15,8 +16,13 @@ export default async function AllCards(): Promise<React.ReactNode> {
    * 
    * @returns Promise<ReactNode> representing all Leviathan cards in scrollable containers
    */
+  const allCards = new AllCards(leviathanCards, "Leviathan")
+  await allCards.generateCardsAsync()
+
   return (
     <div className={cardStyles.allCardsContainer}>
+      <CardViewer leviathanCards={allCards.cards} />
+
       <h2>Deployments</h2>
       <ScrollArea
           type="auto"
@@ -25,7 +31,9 @@ export default async function AllCards(): Promise<React.ReactNode> {
           w="var(--mantine-scrollarea-width)" // Calculate size based on width of viewport
           classNames={scrollbarStyles}
       >
-        <CardList keyName="leviathan-deployments" cards={leviathanCards.deployments} />
+        <div className={cardStyles.cardList}>
+          {allCards?.cards?.deployments?.untyped}
+        </div>
       </ScrollArea>
 
       <h2>Mission Rules</h2>
@@ -36,7 +44,9 @@ export default async function AllCards(): Promise<React.ReactNode> {
           w="var(--mantine-scrollarea-width)" // Calculate size based on width of viewport
           classNames={scrollbarStyles}
       >
-        <CardList keyName="leviathan-mission-rules" cards={leviathanCards.missionRules} />
+        <div className={cardStyles.cardList}>
+          {allCards?.cards?.missionRules?.untyped}
+        </div>
       </ScrollArea>
 
       <h2>Primary Missions</h2>
@@ -47,7 +57,9 @@ export default async function AllCards(): Promise<React.ReactNode> {
           w="var(--mantine-scrollarea-width)" // Calculate size based on width of viewport
           classNames={scrollbarStyles}
       >
-        <CardList keyName="leviathan-primary-missions" cards={leviathanCards.primaryMissions} />
+        <div className={cardStyles.cardList}>
+          {allCards?.cards?.primaryMissions?.untyped}
+        </div>
       </ScrollArea>
 
       <h2>Secondary Missions</h2>
@@ -58,8 +70,12 @@ export default async function AllCards(): Promise<React.ReactNode> {
           w="var(--mantine-scrollarea-width)" // Calculate size based on width of viewport
           classNames={scrollbarStyles}
       >
-        <CardList keyName="leviathan-attacker-secondary-missions" cards={leviathanCards.secondaryMissions} variant="Attacker" />
-        <CardList keyName="leviathan-defender-secondary-missions" cards={leviathanCards.secondaryMissions} variant="Defender" />
+        <div className={cardStyles.cardList}>
+          {allCards?.cards?.secondaryMissions?.attacker}
+        </div>
+        <div className={cardStyles.cardList}>
+          {allCards?.cards?.secondaryMissions?.defender}
+        </div>
       </ScrollArea>
 
       <h2>Gambits</h2>
@@ -70,8 +86,12 @@ export default async function AllCards(): Promise<React.ReactNode> {
           w="var(--mantine-scrollarea-width)" // Calculate size based on width of viewport
           classNames={scrollbarStyles}
       >
-        <CardList keyName="leviathan-attacker-gambits" cards={leviathanCards.gambits} variant="Attacker" />
-        <CardList keyName="leviathan-defender-gambits" cards={leviathanCards.gambits} variant="Defender" />
+        <div className={cardStyles.cardList}>
+          {allCards?.cards?.gambits?.attacker}
+        </div>
+        <div className={cardStyles.cardList}>
+          {allCards?.cards?.gambits?.defender}
+        </div>
       </ScrollArea>
     </div>
   )
