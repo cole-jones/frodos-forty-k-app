@@ -40,7 +40,7 @@ export default function CardsPage() : React.ReactNode {
             className={cardStyles.missionDeckSelector}
           >
             <Image
-              src="/Mission_Deck_Leviathan.png"
+              src="/cards/leviathan/Leviathan_Box.jpg"
               alt="Leviathan Mission Deck"
               height={750}
               width={515}
@@ -61,7 +61,7 @@ export default function CardsPage() : React.ReactNode {
               UNDER<br />CONSTRUCTION
             </div>
             <Image
-              src="/Mission_Deck_Pariah_Nexus.png"
+              src="/cards/pariah_nexus/Pariah_Nexus_Box.jpg"
               alt="Pariah Nexus Mission Deck"
               height={750}
               width={515}
