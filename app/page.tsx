@@ -14,10 +14,10 @@ export default function HomePage() {
         < br/>
         <p>
           It's very much still a work in progress, there will be more to come.<br />
-          Right now, all you can do is look at the<br /><br />
-          <Link href="/cards/leviathan">
+          Right now, all you can do is view the mission decks:<br /><br />
+          <Link href="/cards/">
             <Button size="xl">
-              Leviathan Mission Deck
+              Mission Decks
             </Button>
           </Link>
         </p>

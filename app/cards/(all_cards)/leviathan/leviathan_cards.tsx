@@ -68,7 +68,7 @@ const leviathanPrimaryMissionCards: Array<MissionCard> = [
           by the player that controls it. When moving objective markers, they cannot end that move on top of any other objective marker or model, or insize impassable parts of terrain<br />
           features (such as the walls of a ruin).
         </p>
-        <div className={styles.primaryMissionHeader}>In the second, third and fourth battle rounds:</div>
+        <div className={styles.primaryMissionHeader}>In the second, third, fourth and fifth battle rounds:</div>
         <p>At the end of each turn, the player whose turn it is scores VP<br />as follows:</p>
         <ul className={styles.missionCardList}>
           <li><span>2VP for each servo-skull that is wholly within 12" of their opponent's deployment zone.</span></li>
@@ -103,7 +103,7 @@ const leviathanPrimaryMissionCards: Array<MissionCard> = [
         <div className={styles.primaryMissionHeader}>In the second, third and fourth battle rounds:</div>
         <p>At the end of each Command phase, the player whose turn it<br />is scores 4VP if they control one or more objective markers, and an extra 4VP if they control more objective markers than their opponent controls.</p>
         <div className={styles.primaryMissionHeader}>In the fifth battle round:</div>
-        <ul className={styles.missionCardList}>
+        <ul className={`${styles.missionCardList} ${styles.primaryMissionCardListAfterHeader}`}>
           <li><span>The player who has the first turn scores VP as<br />described above.</span></li>
           <li><span>The player who has the second turn scores VP as described above, but does so at the end of their turn instead of at the end of their Command phase.</span></li>
         </ul>
@@ -120,7 +120,7 @@ const leviathanPrimaryMissionCards: Array<MissionCard> = [
     flavorText: "Bitter foes clash in a race to finish a ritual to either sanctify or corrupt the battlefield.",
     bodyText: (
       <>
-        <p>When setting up the battlefield, remove all objective markers<br />in No Man's Land except the one closest to the centre of the battlefield.</p>
+        <p>When setting up the battlefield, remove all objective markers<br />in No Man's Land except the one closest to the centre of<br />the battlefield.</p>
         <p>
           In each player's Shooting phase, the player whose turn it is<br />can select one unit from their army that is not Battle-shocked and is eligible to shoot.
           Until the end of that turn, that unit<br />is not eligible to shoot or declare a charge. At the end of that turn, the player whose turn it is can set up one objective
@@ -129,7 +129,7 @@ const leviathanPrimaryMissionCards: Array<MissionCard> = [
         <div className={styles.primaryMissionHeader}>In the second, third and fourth battle rounds:</div>
         <p>At the end of each Command phase, the player whose turn it<br />is scores 5VP for each objective marker in No Man's Land they control (up to 15VP per turn).</p>
         <div className={styles.primaryMissionHeader}>In the fifth battle round:</div>
-        <ul className={styles.missionCardList}>
+        <ul className={`${styles.missionCardList} ${styles.primaryMissionCardListAfterHeader}`}>
           <li><span>The player who has the first turn scores VP as<br />described above.</span></li>
           <li><span>The player who has the second turn scores VP as described above, but does so at the end of their<br />turn instead of at the end of their<br />Command phase.</span></li>
         </ul>
@@ -151,7 +151,7 @@ const leviathanPrimaryMissionCards: Array<MissionCard> = [
         <div className={styles.primaryMissionHeader}>In the second, third and fourth battle rounds:</div>
         <p>At the end of each Command phase, the player whose turn it<br />is scores 5VP for each objective marker they control (up to 10VP per turn).</p>
         <div className={styles.primaryMissionHeader}>In the fifth battle round:</div>
-        <ul className={styles.missionCardList}>
+        <ul className={`${styles.missionCardList} ${styles.primaryMissionCardListAfterHeader}`}>
           <li><span>The player who has the first turn scores VP as<br />described above.</span></li>
           <li><span>The player who has the second turn scores VP as described above, but does so at the end of their turn instead of at the end of their Command phase.</span></li>
         </ul>
@@ -182,7 +182,7 @@ const leviathanPrimaryMissionCards: Array<MissionCard> = [
         </ul>
         <p>Note that these are cumulative, so a player that controls one objective marker they have also empowered will score 6VP<br />that turn.</p>
         <div className={styles.primaryMissionHeader}>In the fifth battle round:</div>
-        <ul className={styles.missionCardList}>
+        <ul className={`${styles.missionCardList} ${styles.primaryMissionCardListAfterHeader}`}>
           <li><span>The player who has the first turn scores VP as<br />described above.</span></li>
           <li><span>The player who has the second turn scores VP as described above, but does so at the end of their turn instead of at the end of their Command phase.</span></li>
         </ul>
@@ -206,7 +206,7 @@ const leviathanPrimaryMissionCards: Array<MissionCard> = [
         <div className={styles.primaryMissionHeader}>In the fourth battle round:</div>
         <p>At the end of each Command phase, the player whose turn<br />it is scores 8VP for each objective marker they control in No Man's Land.</p>
         <div className={styles.primaryMissionHeader}>In the fifth battle round:</div>
-        <ul className={styles.missionCardList}>
+        <ul className={`${styles.missionCardList} ${styles.primaryMissionCardListAfterHeader}`}>
           <li><span>The player who has the first turn scores 15VP at the end of their Command phase if they control the objective marker in No Man's Land.</span></li>
           <li><span>The player who has the second turn scores 15VP at the<br />end of their turn if they control the objective marker in No Man's Land.</span></li>
         </ul>
@@ -223,7 +223,7 @@ const leviathanPrimaryMissionCards: Array<MissionCard> = [
         <div className={styles.primaryMissionHeader}>In the second, third and fourth battle rounds:</div>
         <p>At the end of each Command Phase, the player whose turn it<br />is scores 5VP for each objective marker they control (up to<br />15VP per turn).</p>
         <div className={styles.primaryMissionHeader}>In the fifth battle round:</div>
-        <ul className={styles.missionCardList}>
+        <ul className={`${styles.missionCardList} ${styles.primaryMissionCardListAfterHeader}`}>
           <li><span>The player who has the first turn scores VP as<br />described above.</span></li>
           <li><span>The player who has the second turn scores VP as described above, but does so at the end of their turn instead of at the end of their Command phase.</span></li>
         </ul>
@@ -247,7 +247,7 @@ const leviathanPrimaryMissionCards: Array<MissionCard> = [
           <li><span>If they control the objective marker in their opponent's deployment zone, they score 6VP.</span></li>
         </ul>
         <div className={styles.primaryMissionHeader}>In the fifth battle round:</div>
-        <ul className={styles.missionCardList}>
+        <ul className={`${styles.missionCardList} ${styles.primaryMissionCardListAfterHeader}`}>
           <li><span>The player who has the first turn scores VP as<br />described above.</span></li>
           <li><span>The player who has the second turn scores VP as described above, but does so at the end of their turn instead of at the end of their Command phase.</span></li>
         </ul>
@@ -300,7 +300,7 @@ const leviathanSecondaryMissionCards: Array<MissionCard> = [
           <li><span>All <span className={styles.cardKeyword}>Character</span> units from your opponent's Army Roster have been destroyed during the battle.</span></li>
         </ul>
         <p>
-          Noe that if you are using Tactical Missions, this Secondary Mission is achieved even if such a unit<br />
+          Note that if you are using Tactical Missions, this Secondary Mission is achieved even if such a unit<br />
           was destroyed and then subsuquently resurrected for any reason.
         </p>
       </>
@@ -759,9 +759,9 @@ const leviathanGambitCards: Array<MissionCard> = [
     flavorText: "The whole battle was a ruse to buy our covert kill teams the time they need to successfully complete a mission that could turn the tide of the entire war.",
     bodyText: (
       <>
-        <p><strong style={{ color: 'red', textTransform: 'uppercase' }}>Determine Distraction Target:</strong> Your Distraction target will be equal to half the number of enemy units that are within Engagement Range of one or more<br />units from your army (rounding up) at the end of your fifth turn. If your Distraction target is less than 4, it is increased to 4.</p>
-        <p><strong style={{ color: 'red', textTransform: 'uppercase' }}>Distract Enemy Units:</strong> At the end of your fifth<br />turn, roll one D6 for each enemy unit that is within Engagement Range of one or more units from<br />your army. Add 1 to the result if that enemy unit is Battle-shocked and subtract 1 if one or more of the units from your army that are within Engagement Range of it are Battle-shocked. On a 4+, that enemy unit has been successfully delayed.</p>
-        <p><strong style={{ color: 'red', textTransform: 'uppercase' }}>Determine Gambit Success:</strong> If the number of enemy units that have been successfully delayed is greater than or equal to your Distraction target, this Gambit is successfully completed and you score 30VP.</p>
+        <p><strong>Determine Distraction Target:</strong> Your Distraction target will be equal to half the number of enemy units that are within Engagement Range of one or more<br />units from your army (rounding up) at the end of your fifth turn. If your Distraction target is less than 4, it is increased to 4.</p>
+        <p><strong>Distract Enemy Units:</strong> At the end of your fifth<br />turn, roll one D6 for each enemy unit that is within Engagement Range of one or more units from<br />your army. Add 1 to the result if that enemy unit is Battle-shocked and subtract 1 if one or more of the units from your army that are within Engagement Range of it are Battle-shocked. On a 4+, that enemy unit has been successfully delayed.</p>
+        <p><strong>Determine Gambit Success:</strong> If the number of enemy units that have been successfully delayed is greater than or equal to your Distraction target, this Gambit is successfully completed and you score 30VP.</p>
       </>
     )
   },
@@ -772,9 +772,9 @@ const leviathanGambitCards: Array<MissionCard> = [
     flavorText: "Remaining in this battlezone is folly. Teleportariums are being sanctified and orbital transports are inbound  to exfiltrate what forces remain. Prepare for immediate extraction.",
     bodyText: (
       <>
-        <p><strong style={{ color: 'red', textTransform: 'uppercase' }}>Determine Evacuation Target:</strong> Your Evacuation<br />target will be equal to half the number of units from your army that are on the battlefield at the end of the battle (rounding up), including units embarked within <span className={styles.cardKeyword}>Transport</span> models that are on the battlefield. If your Evacuation target is less than 4, it is increased to 4.</p>
-        <p><strong style={{ color: 'red', textTransform: 'uppercase' }}>Evacuate Units:</strong> At the end of your fifth turn, roll one D6 for each unit from your army that is wholly within<br />6" of the centre of the battlefield, subtracting 1 from the result if that unit is Battle-shocked. On a 4+, that unit (and any units embarked within it) are marked<br />for evacuation.</p>
-        <p><strong style={{ color: 'red', textTransform: 'uppercase' }}>Determine Gambit Success:</strong> If the number of your units that are marked for evacuation is greater than<br />or equal to your Evacuation target, this Gambit is successfully completed and you score 30VP.</p>
+        <p><strong>Determine Evacuation Target:</strong> Your Evacuation<br />target will be equal to half the number of units from your army that are on the battlefield at the end of the battle (rounding up), including units embarked within <span className={styles.cardKeyword}>Transport</span> models that are on the battlefield. If your Evacuation target is less than 4, it is increased to 4.</p>
+        <p><strong>Evacuate Units:</strong> At the end of your fifth turn, roll one D6 for each unit from your army that is wholly within<br />6" of the centre of the battlefield, subtracting 1 from the result if that unit is Battle-shocked. On a 4+, that unit (and any units embarked within it) are marked<br />for evacuation.</p>
+        <p><strong>Determine Gambit Success:</strong> If the number of your units that are marked for evacuation is greater than<br />or equal to your Evacuation target, this Gambit is successfully completed and you score 30VP.</p>
       </>
     )
   },

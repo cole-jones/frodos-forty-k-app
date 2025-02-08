@@ -49,6 +49,9 @@ export default async function Card({ card, variant = "untyped" } : { card: Missi
     if (card.title === "Bring it Down") {
       classString += ` ${cardStyles.cardBodySmallSecondaryMission}`
     }
+    if (card.type === "Gambit") {
+      classString += ` ${variant === "attacker" ? cardStyles.cardBodyStrongTextAttacker : cardStyles.cardBodyStrongTextDefender}`
+    }
     return classString
   }
 
@@ -57,16 +60,20 @@ export default async function Card({ card, variant = "untyped" } : { card: Missi
   const cardFlavorClassNames = getCardFlavorClassNames(card)
   const cardBodyClassNames = getCardBodyClassNames(card)
 
-  /* Since Deployment cards are just images, they don't need any text overlaid, so the body will be empty. */
+  /* Since Deployment cards have the image as their body, they only need the header. */
   if (card.type === "Deployment") {
     return (
-      <div
-        className={cardStyles.cardContainer}
-      >
-        <div
-          key={cardKey}
-          className={cardClassNames}
-        />
+      <div className={cardStyles.cardContainer}>
+        <div key={cardKey} className={cardClassNames}>
+          <div className={cardStyles.cardHeader}>
+            <div className={cardStyles.cardType}>
+              {card.type}
+            </div>
+            <div className={cardStyles.cardTitle}>
+              <strong>{card.title}</strong>
+            </div>
+          </div>
+        </div>
       </div>
     )
   }
@@ -77,7 +84,7 @@ export default async function Card({ card, variant = "untyped" } : { card: Missi
       <div key={cardKey} className={cardClassNames}>
         <div className={cardStyles.cardHeader}>
           <div className={cardStyles.cardType}>
-            {card.type}{card.type === "Gambit" || card.type === "Secondary Mission" ? " – Attacker" : ""}
+            {card.type}{card.type === "Gambit" || card.type === "Secondary Mission" ? ` – ${variant}` : ""}
           </div>
           <div className={cardStyles.cardTitle}>
             <strong>{card.title}</strong>

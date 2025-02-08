@@ -58,6 +58,26 @@
   transition: transform 0.5s ease-in-out;
 }
 
+/* TEMPORARY */
+.missionDeckSelectorDisabled {
+  cursor: not-allowed;
+}
+
+.missionDeckSelectorDisabledWatermark {
+  text-align: center;
+  text-transform: none;
+  text-decoration: none !important;
+  color: rgb(255, 252, 88);
+  text-shadow: 2px 2px #3B554A;
+  height: 0;
+  position: relative;
+  top: 200px;
+  left: 0px;
+  font-family: Conduit ITC;
+  font-size: 48pt;
+}
+/*************/
+
 .missionDeckImage {
   width: 100%;
   height: auto;
@@ -166,20 +186,21 @@
 }
 
 .cardHeader {
+  font-family: Conduit ITC Bold;
   display: flex;
   align-items: center;
   flex-direction: column;
   text-transform: uppercase;
   height: 75px;
-  letter-spacing: 1;
-  padding-top: 16px;
+  letter-spacing: 0.045rem;
+  padding-top: 1.1rem;
   color: var(--mantine-color-white);
   border-top-left-radius: var(--card-border-radius);
   border-top-right-radius: var(--card-border-radius);
 }
 
 .cardType {
-  height: 16px;
+  height: 15px;
   padding-top: 2px;
   font-size: var(--card-type-font-size);
 }
@@ -191,11 +212,12 @@
 .cardFlavorBodyContainer {
   padding-top: 6px;
   padding-left: 15px;
-  padding-right: 15px;
+  padding-right: 14px;
   color: var(--mantine-color-black);
 }
 
 .cardFlavor {
+  padding: 3px;
   text-align: center;
   font-family: Conduit ITC Italic;
   font-size: var(--card-flavor-font-size);
@@ -210,7 +232,7 @@
   font-family: consolas;
   font-size: 7pt;
   letter-spacing: -1.28px;
-  height: 12px;
+  height: 4px;
   padding: 0;
   margin-left: -2px;
   margin-right: -2px;
@@ -221,7 +243,7 @@
 
 .cardBody {
   padding: 3px;
-  margin-top: -9px;
+  margin-top: -4px;
   font-family: Conduit ITC Light;
   font-size: var(--card-body-font-size);
   line-height: var(--card-line-height);
@@ -243,10 +265,22 @@
   margin: 8px 0;
 }
 
+.cardBodyStrongTextAttacker p strong {
+  font-family: 'Conduit ITC Bold';
+  color: #AA3142;
+  text-transform: uppercase;
+}
+
+.cardBodyStrongTextDefender p strong {
+  font-family: 'Conduit ITC Bold';
+  color: #3B554A;
+  text-transform: uppercase;
+}
+
 .cardFixedIcon {
   position: absolute;
   bottom: 18px;
-  left: 19px;
+  left: 18px;
   height: 26px;
 }
 
@@ -265,11 +299,10 @@
   background-color: var(--mantine-color-primary_mission_header-1);
   color: var(--mantine-color-white);
   text-align: center;
-  vertical-align: center;
-  margin-top: 8px;
-  margin-bottom: -2px;
-  letter-spacing: 0px;
-  height: 12px;
+  margin-top: 9px;
+  margin-bottom: -3px;
+  letter-spacing: 0.009rem;
+  height: 11px;
   line-height: var(--card-line-height);
   font-weight: 500;
 }
@@ -280,6 +313,9 @@
   padding-inline-start: 1.4em;
   margin: 2px;
   margin-right: 0;
+}
+
+.primaryMissionCardListAfterHeader {
   margin-top: 7px;
 }
 
@@ -288,7 +324,7 @@
 }
 
 .missionCardList li::marker {
-  font-size: 10pt;
+  content: '\25A0       '; /* Square bullet, workaround to get bullet to align with text properly. */
   padding-top: 0px;
 }
 
@@ -302,7 +338,7 @@
   display: inline-block;
   font-size: 0.75em;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.7px;
   line-height: 1em;
 }
 .cardKeyword::first-letter {

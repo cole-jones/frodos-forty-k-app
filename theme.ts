@@ -13,7 +13,7 @@ export const theme = createTheme({
   colors: {
     light: lightmode,
     dark: darkmode,
-    primary_mission_header: colorsTuple('#0C4D6B'),
+    primary_mission_header: colorsTuple('#385366'),
     primary: virtualColor({
       name: 'primary',
       light: 'light',

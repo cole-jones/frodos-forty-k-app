@@ -49,13 +49,17 @@ export default function CardsPage() : React.ReactNode {
           </button>
         </Link>
         <div className={cardStyles.missionDeckSelectorSpacer} />
-        <Link href="/cards/pariah-nexus">
+        <Link href="/cards/pariah-nexus" style={{ textDecoration: 'none' }}>
           <button
             type="button"
+            disabled
             onMouseOver={() => changeBg('url(/Pariah_Nexus_Background.png)')}
             onMouseOut={() => changeBg('url(/transparent_1px.png)')}
-            className={cardStyles.missionDeckSelector}
+            className={`${cardStyles.missionDeckSelector} ${cardStyles.missionDeckSelectorDisabled}`}
           >
+            <div className={cardStyles.missionDeckSelectorDisabledWatermark}>
+              UNDER<br />CONSTRUCTION
+            </div>
             <Image
               src="/Mission_Deck_Pariah_Nexus.png"
               alt="Pariah Nexus Mission Deck"

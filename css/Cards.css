@@ -1,6 +1,6 @@
 /* Define some variables used in card formatting, so they can be controlled from this file */
 html {
-  --card-width: 256px;
+  --card-width: 254px;
   --card-height: 440px;
   --card-margin: 10px;
   --card-hover-scale: 1.04;
@@ -10,7 +10,7 @@ html {
   --card-border-radius: 12px;
   --card-type-font-size: 9pt;
   --card-title-font-size: 14pt;
-  --card-flavor-font-size: 8.35pt;
+  --card-flavor-font-size: 8.1pt;
   --card-flavor-font-size-small: 7.4pt !important;
   --card-body-font-size: 8.1pt;
   --card-body-primary-mission-font-size: 7.1pt;
