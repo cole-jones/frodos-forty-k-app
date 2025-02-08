@@ -70,11 +70,11 @@
   color: rgb(255, 252, 88);
   text-shadow: 2px 2px #3B554A;
   height: 0;
+  max-width: 100%;
   position: relative;
   top: 200px;
-  left: 0px;
   font-family: Conduit ITC;
-  font-size: 48pt;
+  font-size: 5vmin;
 }
 /*************/
 
