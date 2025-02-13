@@ -9,7 +9,7 @@ import styles from '@/css/Home.module.css'
 export default function AppHeaderBreadcrumbs() : React.ReactNode {
   const pathname = usePathname()
 
-  function getBreadcrumbs() : Array<JSX.Element> | null {
+  function getBreadcrumbs() : Array<React.ReactNode> | null {
     if (pathname) {
       /* If the user is on the root page, make a custom single breadcrumb. */
       if (pathname === "/") {
