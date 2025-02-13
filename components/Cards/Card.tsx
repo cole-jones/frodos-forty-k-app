@@ -1,11 +1,11 @@
 'use server'
 
 import { MissionCard } from "@/app/cards/(all_cards)/leviathan/leviathan_cards"
-import { CardVariants } from "@/components/Cards/AllCards"
+import { CardType } from "@/components/Cards/MissionDeck"
+import { pascalCase } from "@/utils/utility_functions"
 import cardStyles from "@/css/Cards.module.css"
-import { capitalizeEachWord } from "@/utils/utility_functions"
 
-export default async function Card({ card, variant = "untyped" } : { card: MissionCard, variant?: CardVariants }) : Promise<React.ReactNode> {
+export default async function Card({ card, variant = null } : { card: MissionCard, variant?: CardType | null }) : Promise<React.ReactNode> {
   /**
    * Render a single MissionCard from the Leviathan deck.
    * 
@@ -20,12 +20,12 @@ export default async function Card({ card, variant = "untyped" } : { card: Missi
     let classString = cardStyles.card
     /* Get the proper class for the background image, based on the type of card and variant (Attacker or Defender (if applicable)) */
     if (card.type === "Deployment") {
-      classString += ` ${cardStyles[`cardFrontDeployment${capitalizeEachWord(card.title).replace(' ', '')}`]}`
+      classString += ` ${cardStyles[`cardFrontDeployment${pascalCase(card.title)}`]}`
     }
     else if (card.type === "Mission Rule" || card.type === "Primary Mission") {
       classString += ` ${cardStyles[`cardFront${card.type.replace(' ', '')}`]}`
     }
-    else {
+    else if (variant) {
       classString += ` ${cardStyles[`cardFront${variant[0].toUpperCase() + variant.slice(1)}${card.type.replace(' ', '')}`]}`
     }
     return classString

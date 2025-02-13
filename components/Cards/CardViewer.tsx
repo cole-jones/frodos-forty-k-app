@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from "react"
 import { useDisclosure } from "@mantine/hooks"
 import { Modal } from "@mantine/core"
 import cardStyles from "@/css/Cards.module.css"
-import { MissionDeckCards } from "@/components/Cards/AllCards"
+import { type CardInfo, type MissionDeckCards } from "@/components/Cards/MissionDeck"
 
 // Edit HTMLElementEventMap so knows to expect a custom event on 'card-viewer-modal-button-click'
 declare global {
@@ -25,28 +25,38 @@ export default function CardViewer({
 
   const openModal = useCallback((event: CustomEvent) => {
     const {
-      missionDeck,
-      section,
+      missionDeckName,
+      missionDeckSection,
+      cardType,
       cardIndex,
-      variant
     } : {
-      missionDeck: string,
-      section: string,
+      missionDeckName: string,
+      missionDeckSection: string,
+      cardType: string,
       cardIndex: number,
-      variant: string
     } = event.detail
 
+    /* cardIndex is the original index value of the card, which will not change when the
+       card sections are shuffled. Using find() allows direct lookup instead of array indexing. */
     let newModalContent = null
-    if (missionDeck === "Leviathan" && leviathanCards) {
-      newModalContent = leviathanCards[section][variant][cardIndex]
+    if (missionDeckName === "Leviathan" && leviathanCards) {
+      if (cardType === null) {
+        newModalContent = leviathanCards[missionDeckSection].find((card: CardInfo) => card.cardIndex === cardIndex)
+      } else {
+        newModalContent = leviathanCards[missionDeckSection][cardType].find((card: CardInfo) => card.cardIndex === cardIndex)
+      }
     }
-    else if (missionDeck === "Pariah Nexus" && pariahNexusCards) {
-      newModalContent = pariahNexusCards[section][variant][cardIndex]
+    else if (missionDeckName === "Pariah Nexus" && pariahNexusCards) {
+      if (cardType === null) {
+        newModalContent = pariahNexusCards[missionDeckSection].find((card: CardInfo) => card.cardIndex === cardIndex)
+      } else {
+        newModalContent = pariahNexusCards[missionDeckSection][cardType].find((card: CardInfo) => card.cardIndex === cardIndex)
+      }
     }
 
     setModalContent(
       <div className={cardStyles.cardInModal}>
-        {newModalContent}
+        {newModalContent.card}
       </div>
     )
     open()

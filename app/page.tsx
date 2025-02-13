@@ -3,7 +3,7 @@ import { Button, Title } from "@mantine/core"
 
 export default function HomePage() {
   return (
-    <div style={{ width: '100%', height: 'calc(var(--mantine-scrollarea-height) - 100px)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    <div style={{ width: '100%', height: 'calc(var(--app-body-height) - 100px)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <div style={{ textAlign: 'center', color: 'light-dark(var(--mantine-primary-color-9), var(--mantine-primary-color-1))' }}>
         <Title order={1} size="48pt">
           Welcome

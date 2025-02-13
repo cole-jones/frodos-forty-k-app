@@ -1,4 +1,6 @@
-export function capitalizeEachWord(title: string) : string {
+type JoinerChar = " " | "" | "-" | "_"
+
+function customCapitalizer(title: string, joiner: JoinerChar) : string {
   /**
    * Converts a given string to having each individual word capitalized.
    * 
@@ -10,11 +12,16 @@ export function capitalizeEachWord(title: string) : string {
    * @returns String with all words having their first letter capitalized
    */
   return (
-    title.toLowerCase()
+    title.replace('_', ' ')
+      .replace('-', ' ')
+      .toLowerCase()
       .split(' ')
       .map((word: string) => {
         return word.charAt(0).toUpperCase() + word.substring(1)
       })
-      .join('')
+      .join(joiner)
   )
 }
+
+export function capitalizeEachWord(str: string) { return customCapitalizer(str, " ") }
+export function pascalCase(str: string) { return customCapitalizer(str, "") }

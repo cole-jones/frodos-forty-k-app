@@ -1,7 +1,8 @@
 html {
-  --mantine-scrollarea-height: calc(100vh - var(--app-shell-header-height, 0px) - var(--app-shell-footer-height, 0px) - 12px);
-  --mantine-scrollarea-width: calc(100vw - 30px);
-  --mantine-scrollarea-width-noscroll: calc(100vw - 12px);
+  --app-body-height: calc(100vh - var(--app-shell-header-height, 0px) - var(--app-shell-footer-height, 0px) - 12px);
+  --app-body-height-nopadding: calc(var(--app-body-height) + 12px);
+  --app-body-width: calc(100vw - 30px);
+  --app-body-width-nopadding: calc(100vw - 12px);
 }
 
 body {

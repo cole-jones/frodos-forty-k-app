@@ -1,8 +1,7 @@
 /* /cards/layout.tsx */
-.cardsLayoutContainer {
-  height: var(--mantine-scrollarea-height);
-  width: var(--mantine-scrollarea-width-noscroll);
-  padding: 20px;
+.missionDeckSelectorContainer {
+  height: var(--app-body-height);
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,7 +16,7 @@
 
 .missionDeckSelectorBackground {
   position: absolute;
-  height: 100%;
+  height: var(--app-body-height-nopadding);
   width: 100%;
   z-index: -1;
   background-image: url(/transparent_1px.png);
@@ -31,7 +30,7 @@
   box-shadow: 0 0 8px 8px light-dark(var(--mantine-color-primary-4), var(--mantine-color-primary-7)) inset;
 }
 
-.missionDeckSelectorContainer {
+.missionDeckSelectorButtonsContainer {
   z-index: 1;
   height: fit-content;
   width: 100%;
@@ -53,13 +52,17 @@
   min-height: 30px;
 }
 
-.missionDeckSelector {
+.missionDeckSelectorButton {
   all: unset;
   transition: transform 0.5s ease-in-out;
 }
 
+.missionDeckSelectorButton:hover {
+  transform: scale(1.05)
+}
+
 /* TEMPORARY */
-.missionDeckSelectorDisabled {
+.missionDeckSelectorButtonDisabled {
   cursor: not-allowed;
 }
 
@@ -83,10 +86,6 @@
   height: auto;
   border: 3px solid light-dark(var(--mantine-color-primary-7), var(--mantine-color-primary-2));
   border-radius: 20px;
-}
-
-.missionDeckSelector:hover {
-  transform: scale(1.05)
 }
 
 /* CardViewer.tsx */
@@ -211,8 +210,8 @@
 
 .cardFlavorBodyContainer {
   padding-top: 6px;
-  padding-left: 15px;
-  padding-right: 14px;
+  padding-left: 14.5px;
+  padding-right: 14.5px;
   color: var(--mantine-color-black);
 }
 
