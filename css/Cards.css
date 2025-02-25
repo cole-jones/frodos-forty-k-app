@@ -12,7 +12,9 @@ html {
   --card-title-font-size: 14pt;
   --card-flavor-font-size: 8.1pt;
   --card-flavor-font-size-small: 7.4pt !important;
+  --card-flavor-font-size-extra-small: 7.1pt !important;
   --card-body-font-size: 8.1pt;
-  --card-body-primary-mission-font-size: 7.1pt;
+  --card-body-font-size-small: 7.2pt;
+  --card-body-font-size-extra-small: 7.1pt;
   --card-body-secondary-mission-small-font-size: 7.2pt;
 }

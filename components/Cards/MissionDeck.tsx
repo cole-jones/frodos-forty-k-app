@@ -1,4 +1,5 @@
-import { leviathanCards, type LeviathanCards, type MissionCard } from "@/app/cards/(all_cards)/leviathan/leviathan_cards"
+import { leviathanCards, type LeviathanCards } from "@/app/cards/leviathan_cards"
+import { pariahNexusCards, type PariahNexusCards } from "@/app/cards/pariah_nexus_cards"
 import Card from "@/components/Cards/Card"
 import ClickableCard from "@/components/Cards/ClickableCard"
 
@@ -14,8 +15,14 @@ export interface TypedCards {
   attacker: Array<CardInfo>
   defender: Array<CardInfo>
 }
-
-
+export interface MissionCard {
+  isFixed: boolean
+  firstTurnAllowed?: boolean
+  section: MissionDeckSection
+  title: string
+  flavor: string
+  body: React.ReactNode | null
+}
 export interface MissionDeckCards {
   [key: number]: Cards
   [key: string]: any
@@ -23,21 +30,22 @@ export interface MissionDeckCards {
   missionRules: Cards
   primaryMissions: Cards
   secondaryMissions: TypedCards
-  gambits: TypedCards
+  gambits?: TypedCards
+  secretMissions?: TypedCards
 }
 export type MissionDeckName = "Leviathan" | "Pariah Nexus"
-export type MissionDeckSection = "deployments" | "missionRules" | "primaryMissions" | "secondaryMissions" | "gambits"
+export type MissionDeckSection = "deployments" | "missionRules" | "primaryMissions" | "secondaryMissions" | "gambits" | "secretMissions"
 export type CardType = "attacker" | "defender"
 
 export async function MissionDeck(missionDeckName: "Leviathan" | "Pariah Nexus") : Promise<MissionDeckCards> {
-  async function generateCardsAsync(missionDeckName: "Leviathan" | "Pariah Nexus") {
-    let cards: LeviathanCards
+  async function generateCardsAsync() {
+    let cards: LeviathanCards | PariahNexusCards
+
     if (missionDeckName === "Leviathan") {
       cards = leviathanCards
     }
     else {
-      // TODO: Replace this with Pariah Nexus cards
-      cards = leviathanCards
+      cards = pariahNexusCards
     }
 
     const missionDeckCards: MissionDeckCards = {
@@ -45,7 +53,11 @@ export async function MissionDeck(missionDeckName: "Leviathan" | "Pariah Nexus")
       missionRules: await generateCards(cards.missionRules, "missionRules"),
       primaryMissions: await generateCards(cards.primaryMissions, "primaryMissions"),
       secondaryMissions: await generateTypedCards(cards.secondaryMissions, "secondaryMissions"),
-      gambits: await generateTypedCards(cards.gambits, "gambits"),
+    }
+    if ("gambits" in cards) {
+      missionDeckCards.gambits = await generateTypedCards(cards.gambits, "gambits")
+    } else if ("secretMissions" in cards) {
+      missionDeckCards.secretMissions = await generateTypedCards(cards.secretMissions, "secretMissions")
     }
 
     return missionDeckCards
@@ -55,7 +67,7 @@ export async function MissionDeck(missionDeckName: "Leviathan" | "Pariah Nexus")
     const untypedReturn: Cards = []
 
     cardGroup.forEach(async (card: MissionCard, cardIndex: number) => {
-      const constructedCard: React.ReactNode = await Card({ card, variant: null })
+      const constructedCard: React.ReactNode = await Card({ card, missionDeckName, cardType: null })
       const cardWithInfo: CardInfo = {
         missionDeckName,
         missionDeckSection,
@@ -77,7 +89,7 @@ export async function MissionDeck(missionDeckName: "Leviathan" | "Pariah Nexus")
     const typedReturn: TypedCards = { attacker: [], defender: [] }
 
     cardGroup.forEach(async (card: MissionCard, cardIndex: number) => {
-      const constructedCard: React.ReactNode = await Card({ card, variant: "attacker" })
+      const constructedCard: React.ReactNode = await Card({ card, missionDeckName, cardType: "attacker" })
       const cardWithInfo: CardInfo = {
         missionDeckName,
         missionDeckSection,
@@ -92,7 +104,7 @@ export async function MissionDeck(missionDeckName: "Leviathan" | "Pariah Nexus")
       typedReturn.attacker.push(cardWithInfo)
     })
     cardGroup.forEach(async (card: MissionCard, cardIndex: number) => {
-      const constructedCard: React.ReactNode = await Card({ card, variant: "defender" })
+      const constructedCard: React.ReactNode = await Card({ card, missionDeckName, cardType: "defender" })
       const cardWithInfo: CardInfo = {
         missionDeckName,
         missionDeckSection,
@@ -110,5 +122,5 @@ export async function MissionDeck(missionDeckName: "Leviathan" | "Pariah Nexus")
     return typedReturn
   }
 
-  return await generateCardsAsync(missionDeckName)
+  return await generateCardsAsync()
 }

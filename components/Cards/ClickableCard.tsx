@@ -5,7 +5,7 @@ import {
   type MissionDeckSection,
   type CardType
 } from '@/components/Cards/MissionDeck'
-import cardStyles from '@/css/Cards.module.css'
+import styles from '@/css/CardViewer.module.css'
 
 function simulateMouseClick(
   element: HTMLElement,
@@ -53,7 +53,7 @@ export default function ClickableCard({
   }
 
   return (
-    <button type="button" className={cardStyles.cardButton} onClick={handleButtonClick}>
+    <button type="button" className={styles.cardButton} onClick={handleButtonClick}>
       {children}
     </button>
   )

@@ -45,34 +45,41 @@ export class MatchClass {
   }
 
   public shuffleGambits(cardType: CardType) {
-    this.cards.gambits[cardType] = this.fisherYatesShuffle(this.cards.gambits[cardType])
+    if ("gambits" in this.cards && this.cards.gambits !== undefined)
+      this.cards.gambits[cardType] = this.fisherYatesShuffle(this.cards.gambits[cardType])
+  }
+
+  public shuffleSecretMissions(cardType: CardType) {
+    if ("secretMissions" in this.cards && this.cards.secretMissions !== undefined)
+      this.cards.secondaryMissions[cardType] = this.fisherYatesShuffle(this.cards.secondaryMissions[cardType])
   }
 }
 
-export function Match({ missionDeckCards } : { missionDeckCards: MissionDeckCards }) {
+export default function Match({ missionDeckCards } : { missionDeckCards: MissionDeckCards }) {
   const match: MatchClass = new MatchClass(missionDeckCards)
 
   // Since changing class values doesn't proc a re-render, make a new function to force re-render
   const [, forceUpdate] = useReducer(x => x + 1, 0);
 
   function shuffle(section: MissionDeckSection, attOrDef: CardType | null = null) {
-    if (section === "deployments") {
+    if (section === "deployments")
       match.shuffleDeployments()
-    } else if (section === "missionRules") {
+    else if (section === "missionRules")
       match.shuffleMissionRules()
-    } else if (section === "primaryMissions") {
+    else if (section === "primaryMissions")
       match.shufflePrimaryMissions()
-    } else if (section === "secondaryMissions" && attOrDef !== null) {
+    else if (section === "secondaryMissions" && attOrDef !== null)
       match.shuffleSecondaryMissions(attOrDef)
-    } else if (section === "gambits" && attOrDef !== null) {
+    else if (section === "gambits" && attOrDef !== null)
       match.shuffleGambits(attOrDef)
-    }
+    else if (section === "secretMissions" && attOrDef !== null)
+      match.shuffleSecretMissions(attOrDef)
 
     forceUpdate()
   }
 
   return (
-    <div style={{ border: '1px solid red', height: '100%', width: '100%' }}>
+    <div style={{ height: '100%', width: '100%' }}>
       <Button
         onClick={() => shuffle("deployments")}
       >

@@ -1,6 +1,7 @@
 'use server'
 
-import Match from "@/components/Match/Match"
+import { Suspense } from "react"
+import CardsShowcase from "@/components/Cards/CardsShowcase"
 import CardViewer from "@/components/Cards/CardViewer"
 import { MissionDeck, type MissionDeckName, type MissionDeckCards } from "@/components/Cards/MissionDeck"
 
@@ -16,7 +17,9 @@ export default async function Page({ params }: { params: Promise<{ mission_deck:
         :
         <CardViewer pariahNexusCards={missionDeckCards} />
       }
-      <Match missionDeckCards={missionDeckCards} />
+      <Suspense fallback={<div/>}>
+        <CardsShowcase missionDeckCards={missionDeckCards} />
+      </Suspense>
     </div>
   )
 }

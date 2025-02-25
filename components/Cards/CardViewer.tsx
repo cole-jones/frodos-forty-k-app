@@ -3,8 +3,8 @@
 import { useState, useEffect, useCallback } from "react"
 import { useDisclosure } from "@mantine/hooks"
 import { Modal } from "@mantine/core"
-import cardStyles from "@/css/Cards.module.css"
 import { type CardInfo, type MissionDeckCards } from "@/components/Cards/MissionDeck"
+import styles from "@/css/CardViewer.module.css"
 
 // Edit HTMLElementEventMap so knows to expect a custom event on 'card-viewer-modal-button-click'
 declare global {
@@ -55,7 +55,7 @@ export default function CardViewer({
     }
 
     setModalContent(
-      <div className={cardStyles.cardInModal}>
+      <div className={styles.cardInModal}>
         {newModalContent.card}
       </div>
     )
@@ -86,7 +86,7 @@ export default function CardViewer({
         withCloseButton={false}
         radius={0}
         transitionProps={{ transition: 'fade', duration: 200 }}
-        className={cardStyles.cardModal}
+        className={styles.cardModal}
         removeScrollProps={{ removeScrollBar: true }}
       >
         <div id="modal-content">

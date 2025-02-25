@@ -1,6 +1,6 @@
 'use client'
 
-import cardStyles from "@/css/Cards.module.css"
+import styles from "@/css/MissionDeckSelector.module.css"
 
 function changeBg(src: string) {
   const missionDeckSelectorContainer = document.getElementById("mission-deck-selector-container")
@@ -26,7 +26,7 @@ export function MissionDeckSelectorButton({ missionDeck, children } : { missionD
       type="button"
       onMouseOver={() => changeBg(`url(/${missionDeck.replace(' ', '_')}_Background.png)`)}
       onMouseOut={() => changeBg('url(/transparent_1px.png)')}
-      className={cardStyles.missionDeckSelectorButton}
+      className={styles.missionDeckSelectorButton}
     >
       {children}
     </button>

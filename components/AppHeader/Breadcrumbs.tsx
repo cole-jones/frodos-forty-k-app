@@ -32,7 +32,7 @@ export default function AppHeaderBreadcrumbs() : React.ReactNode {
       /* Return a list of links to each page in the Breadcrumb. */
       return hrefList.map(({ name, href }, index) =>
         <Anchor component={Link} href={href} key={index}>
-          {capitalizeEachWord(name)}
+          {capitalizeEachWord(name, " ")}
         </Anchor>
       )
     }
