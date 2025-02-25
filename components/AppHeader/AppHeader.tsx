@@ -6,7 +6,7 @@ import AppHeaderBreadcrumbs from '@/components/AppHeader/Breadcrumbs';
 import { ColorSchemeToggle } from '@/components/ColorSchemeToggle/ColorSchemeToggle';
 import homeStyles from '@/css/Home.module.css'
 
-export async function AppHeader() : Promise<JSX.Element> {
+export async function AppHeader() : Promise<React.ReactNode> {
   return (
     <div className={homeStyles.headerContainer}>
       <div className={homeStyles.headerContainerFlex}>

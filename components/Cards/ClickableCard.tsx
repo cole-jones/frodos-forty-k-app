@@ -1,53 +1,59 @@
 'use client'
 
-import { MissionDeck, Section, CardVariants } from '@/components/Cards/AllCards'
-import cardStyles from '@/css/Cards.module.css'
+import {
+  type MissionDeckName,
+  type MissionDeckSection,
+  type CardType
+} from '@/components/Cards/MissionDeck'
+import styles from '@/css/CardViewer.module.css'
 
 function simulateMouseClick(
   element: HTMLElement,
-  missionDeck: MissionDeck,
-  section: Section,
-  cardIndex: number,
-  variant: CardVariants
+  missionDeckName: MissionDeckName,
+  missionDeckSection: MissionDeckSection,
+  cardType: CardType | null,
+  cardIndex: number
 ) {
   const myEvent = new CustomEvent("card-viewer-modal-button-click", {
     detail: {
-      missionDeck,
-      section,
+      missionDeckName,
+      missionDeckSection,
+      cardType,
       cardIndex,
-      variant
     }
   })
   element.dispatchEvent(myEvent)
 }
 
 export default function ClickableCard({
-  missionDeck,
-  section,
+  missionDeckName,
+  missionDeckSection,
   cardIndex,
-  variant,
+  cardType = null,
   children
 } : {
-  missionDeck: MissionDeck,
-  section: Section,
+  missionDeckName: MissionDeckName,
+  missionDeckSection: MissionDeckSection,
   cardIndex: number,
-  variant: CardVariants,
+  cardType: CardType | null,
   children: React.ReactNode
 }) : React.ReactNode {
-  const md = missionDeck
-  const se = section
-  const ci = cardIndex
-  const cv = variant
-
+  /* Simulate a mouse click on the invisible CardViewer button by executing a custom event. */
   function handleButtonClick() {
     const cardViewerModalButton: HTMLElement | null = document.getElementById("card-viewer-modal-button")
     if (cardViewerModalButton) {
-      simulateMouseClick(cardViewerModalButton, md, se, ci, cv)
+      simulateMouseClick(
+        cardViewerModalButton,
+        missionDeckName,
+        missionDeckSection,
+        cardType,
+        cardIndex
+      )
     }
   }
 
   return (
-    <button type="button" className={cardStyles.cardButton} onClick={handleButtonClick}>
+    <button type="button" className={styles.cardButton} onClick={handleButtonClick}>
       {children}
     </button>
   )

@@ -1,0 +1,58 @@
+.cardButton {
+  & {
+    all: unset;
+    user-select: none;
+  }
+  &:hover {
+    cursor: zoom-in;
+  }
+}
+
+.cardModal {
+  padding: 0;
+  :global(.mantine-Modal-root),
+  :global(.mantine-Modal-content) {
+    overflow: hidden;
+    height: calc(var(--card-height) * var(--card-modal-scale));
+    width: calc(var(--card-width) * var(--card-modal-scale));
+    background-color: transparent;
+    flex: none;
+  }
+  :global(.mantine-Modal-body) {
+    padding: 0;
+  }
+}
+
+.cardInModal {
+  display: flex;
+  height: var(--card-height);
+  width: var(--card-width);
+  padding: var(--card-margin) * -1;
+  transition: transform 0.1s ease-in-out;
+  transform: scale(var(--card-modal-scale));
+  transform-origin: top left;
+}
+
+.cardInModal > button > div {
+  /* Overwrite some styles defined in Cards.module.css .cardContainer class. */
+  margin: 0;
+  &:hover {
+    transform: scale(1)
+  }
+}
+
+.cardInModal .cardButton {
+  & {
+    all: unset;
+    user-select: text;
+  }
+  &:hover {
+    cursor: default;
+  }
+}
+
+.cardInModal .cardButton > div > div > div > div {
+  &:hover {
+    cursor: text !important;
+  }
+}
