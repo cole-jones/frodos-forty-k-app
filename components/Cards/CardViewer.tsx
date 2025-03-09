@@ -40,18 +40,16 @@ export default function CardViewer({
        card sections are shuffled. Using find() allows direct lookup instead of array indexing. */
     let newModalContent = null
     if (missionDeckName === "Leviathan" && leviathanCards) {
-      if (cardType === null) {
+      if (cardType === null)
         newModalContent = leviathanCards[missionDeckSection].find((card: CardInfo) => card.cardIndex === cardIndex)
-      } else {
+      else
         newModalContent = leviathanCards[missionDeckSection][cardType].find((card: CardInfo) => card.cardIndex === cardIndex)
-      }
     }
     else if (missionDeckName === "Pariah Nexus" && pariahNexusCards) {
-      if (cardType === null) {
+      if (cardType === null)
         newModalContent = pariahNexusCards[missionDeckSection].find((card: CardInfo) => card.cardIndex === cardIndex)
-      } else {
+      else
         newModalContent = pariahNexusCards[missionDeckSection][cardType].find((card: CardInfo) => card.cardIndex === cardIndex)
-      }
     }
 
     setModalContent(

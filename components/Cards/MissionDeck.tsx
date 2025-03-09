@@ -33,8 +33,45 @@ export interface MissionDeckCards {
   gambits?: TypedCards
   secretMissions?: TypedCards
 }
+export interface MissionDeckCardIndices {
+  [key: number]: Array<number>
+  deployments: Array<number>
+  missionRules: Array<number>
+  primaryMissions: Array<number>
+  secondaryMissions: {
+    attacker: Array<number>,
+    defender: Array<number>,
+  }
+  gambits: {
+    attacker: Array<number>,
+    defender: Array<number>,
+  }
+  secretMissions: {
+    attacker: Array<number>,
+    defender: Array<number>,
+  }
+}
+export interface MissionDeckCardsActive {
+  deployments: number | null
+  missionRules: number | null
+  primaryMissions: number | null
+  secondaryMissions: {
+    attacker: Array<number | null>,
+    defender: Array<number | null>,
+  }
+  gambits: {
+    attacker: number | null,
+    defender: number | null,
+  }
+  secretMissions: {
+    attacker: number | null,
+    defender: number | null,
+  }
+}
 export type MissionDeckName = "Leviathan" | "Pariah Nexus"
 export type MissionDeckSection = "deployments" | "missionRules" | "primaryMissions" | "secondaryMissions" | "gambits" | "secretMissions"
+export type MissionDeckSectionUntyped = "deployments" | "missionRules" | "primaryMissions"
+export type MissionDeckSectionTyped = "secondaryMissions" | "gambits" | "secretMissions"
 export type CardType = "attacker" | "defender"
 
 export async function MissionDeck(missionDeckName: "Leviathan" | "Pariah Nexus") : Promise<MissionDeckCards> {
