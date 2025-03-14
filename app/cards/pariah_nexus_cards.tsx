@@ -83,6 +83,7 @@ const pariahNexusMissionRuleCards: Array<MissionCard> = [
         </Paragraph>
         
         <Header
+          lessTopMargin
           pariahNexus
           text="For players using tactical missions"
         />
@@ -1128,7 +1129,7 @@ const pariahNexusSecondaryMissionCards: Array<MissionCard> = [
           While this card is active.
         </Paragraph>
         <Separator pariahNexus />
-        <PointsParagraph points={2} maxPoints={5} minHeight={24}>
+        <PointsParagraph points={2} maxPoints={5} minHeight>
           Each time an enemy unit is destroyed.
         </PointsParagraph>
         <Separator pariahNexus />

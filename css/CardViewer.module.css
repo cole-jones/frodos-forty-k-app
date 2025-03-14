@@ -27,7 +27,6 @@
   display: flex;
   height: var(--card-height);
   width: var(--card-width);
-  padding: var(--card-margin) * -1;
   transition: transform 0.1s ease-in-out;
   transform: scale(var(--card-modal-scale));
   transform-origin: top left;

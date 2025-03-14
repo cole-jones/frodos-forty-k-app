@@ -247,6 +247,7 @@ export function Strong({
  * @param leviathan - If true, use Leviathan deck styling. Default false.
  * @param pariahNexus - If true, use Pariah Nexus deck styling. Default false.
  * @param squished - If true, reduce the spacing above/below the line. Default false.
+ * @param short - If true, apply 'width: 100%' and 'overflow: hidden', increase height, eliminate margin. Default false.
  *
  * @returns ReactNode representing a dotted line.
  */
@@ -254,10 +255,12 @@ export function Separator({
   leviathan = false,
   pariahNexus = false,
   squished = false,
+  short = false,
 } : {
   leviathan?: boolean,
   pariahNexus?: boolean,
-  squished?: boolean
+  squished?: boolean,
+  short?: boolean,
 }) : React.ReactNode {
   let classNameString: string = ""
   let bodyText: string = ""
@@ -273,6 +276,8 @@ export function Separator({
 
   if (squished)
     classNameString += ` ${styles.cardFlavorDottedLineSquished}`
+  if (short)
+    classNameString += ` ${styles.cardFlavorDottedLineShort}`
 
   return (
     <div className={classNameString}>
@@ -327,7 +332,7 @@ export function Paragraph({
     classNameString += ` ${styles.cardBodyParagraphNoWrap}`
 
   return (
-    <div style={{ flex: 1 }} className={classNameString}>
+    <div className={classNameString}>
       {children}
     </div>
   )
@@ -338,7 +343,7 @@ export function Paragraph({
  *
  * @param points - The number of points the section is worth.
  * @param maxPoints - The maximum number of point obtainable from the mission.
- * @param minHeight - The minimum height (in px) of the paragraph.
+ * @param minHeight - If true, forces paragraph to have a minimum height of 24px.
  * @param type - Different point label for fixed or tactical missions.
  * @param plus - If true, add a plus box to the paragraph and + to the point value.
  * @param noWrap - If true, set 'text-wrap: nowrap; overflow: visible' on the paragraph.
@@ -349,7 +354,7 @@ export function Paragraph({
 export function PointsParagraph({
   points,
   maxPoints,
-  minHeight = 0,
+  minHeight = false,
   type = "",
   plus = false,
   noWrap = false,
@@ -357,7 +362,7 @@ export function PointsParagraph({
 } : {
   points: number,
   maxPoints?: number,
-  minHeight?: number,
+  minHeight?: boolean,
   type?: "fixed" | "tactical" | ""
   plus?: boolean,
   noWrap?: boolean,
@@ -379,7 +384,7 @@ export function PointsParagraph({
       </Paragraph>
       {/* Spacer div to limit paragraph size, give a place for
         * the next paragraph (which is 'position: absolute') to sit. */}
-      <div style={{ width: '27.5%', minHeight: minHeight }} />
+      <div className={`${styles.cardBodyPointsParagraphSpacer} ${minHeight ? styles.cardBodyPointsParagraphSpacerMinHeight : ""}`} />
       <div className={styles.cardBodyPointsParagraph}>
         <Strong bold uppercase text={type} />
         <Strong bold uppercase text={`${plus ? "+" : ""}${points}VP`} />
@@ -416,11 +421,12 @@ export function Header({
   leviathan?: boolean,
   pariahNexus?: boolean
 }) : React.ReactNode {
-  let classNameString: string = ""
+  let classNameString: string = styles.headerFlexboxText
+  let marginClassNameString: string = ""
 
   if (or) {
     if (lessTopMargin)
-      classNameString = styles.headerOrLessTopMargin
+      classNameString += ` ${styles.headerOrLessTopMargin}`
 
     classNameString += ` ${styles.headerOr}`
     return (
@@ -428,19 +434,25 @@ export function Header({
     )
   }
 
-  if (leviathan)
-    classNameString = styles.headerLeviathan
-  else if (pariahNexus)
-    classNameString = styles.headerPariahNexus
+  if (leviathan) {
+    classNameString += ` ${styles.headerLeviathan}`
+    if (lessTopMargin)
+      marginClassNameString += ` ${styles.headerLessTopMarginLeviathan}`
+  }
+  else if (pariahNexus) {
+    classNameString += ` ${styles.headerPariahNexus}`
+    if (lessTopMargin)
+      marginClassNameString += ` ${styles.headerLessTopMarginPariahNexus}`
+  }
 
   return (
-    <div className={`${styles.headerFlexbox} ${lessTopMargin ? styles.headerLessTopMargin : null}`}>
-      <div id="header" className={classNameString} style={{ flexGrow: 1 }}>
+    <div className={`${styles.headerFlexbox} ${marginClassNameString}`}>
+      <div id="header" className={classNameString}>
         {text}
       </div>
       {victoryPoints ?
         <>
-          <div style={{ width: '1%'}} />
+          <div className={styles.headerSpacer} />
           <div id="header-victory-points" className={`${classNameString} ${styles.headerVictoryPoints}`}>
             Victory Points
           </div>
@@ -483,7 +495,7 @@ export function Action({
   let actionClassNames: string = styles.action;
 
   if (lessTopMargin)
-    actionClassNames += ` ${styles.headerLessTopMargin}`
+    actionClassNames += ` ${styles.headerLessTopMarginPariahNexus}`
 
   return (
     <>
@@ -544,7 +556,8 @@ export function Action({
  * @param tight - If true, add 6px of padding to the left of the paragraph, 0px on the right.
  * @param small - If true, use 'font-size: var(--card-body-font-size-small)' on the paragraph.
  * @param extraSmall - If true, use 'font-size: var(--card-body-font-size-extra-small); line-height: var(--card-line-height-tall)' on the paragraph.
- * @param extraTopMargin - If true, add a bit more margin to the top of the list..
+ * @param extraTopMargin - If true, add a bit more margin to the top of the list.
+ * @param lessBottomMargin - If true, set a small negative bottom margin.
  *
  * @returns ReactNode representing a stylized unordered list.
  */
@@ -554,12 +567,14 @@ export function List({
   small = false,
   extraSmall = false,
   extraTopMargin = false,
+  lessBottomMargin = false,
 } : {
   items: Array<React.ReactNode>,
   tight?: boolean,
   small?: boolean,
   extraSmall?: boolean,
   extraTopMargin?: boolean,
+  lessBottomMargin?: boolean,
 }) : React.ReactNode {
   let classNameString: string = styles.missionCardList
   
@@ -571,6 +586,8 @@ export function List({
     classNameString += ` ${styles.cardBodyParagraphExtraSmall}`
   if (extraTopMargin)
     classNameString += ` ${styles.missionCardListTopMargin}`
+  if (lessBottomMargin)
+    classNameString += ` ${styles.missionCardListBottomMargin}`
 
   return (
     <ul className={classNameString}>

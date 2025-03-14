@@ -9,7 +9,7 @@ import styles from "@/css/CardViewer.module.css"
 // Edit HTMLElementEventMap so knows to expect a custom event on 'card-viewer-modal-button-click'
 declare global {
   interface HTMLElementEventMap {
-      'card-viewer-modal-button-click': CustomEvent;
+    'card-viewer-modal-button-click': CustomEvent;
   }
 }
 
@@ -21,7 +21,7 @@ export default function CardViewer({
   pariahNexusCards?: MissionDeckCards | null | undefined
 }) : React.ReactNode {
   const [opened, { open, close }] = useDisclosure(false)
-  const [modalContent, setModalContent] = useState(<div />)
+  const [modalContent, setModalContent] = useState<React.ReactNode>(<div />)
 
   const openModal = useCallback((event: CustomEvent) => {
     const {

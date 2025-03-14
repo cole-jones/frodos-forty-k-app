@@ -32,15 +32,15 @@ export default async function CardsShowcase({ missionDeckCards } : { missionDeck
               {["secondaryMissions", "gambits", "secretMissions"].includes(key) ?
                 <>
                   <div key={`${capitalizeEachWord(key, "-")}-attacker-card-list`} className={cardStyles.cardList}>
-                    {missionDeckCards[key].attacker.map((card: CardInfo) => card.card)}
+                    {missionDeckCards[key].attacker.map((card: CardInfo) => <div className={cardStyles.cardListContainer}>{card.card}</div>)}
                   </div>
                   <div key={`${capitalizeEachWord(key, "-")}-defender-card-list`} className={cardStyles.cardList}>
-                    {missionDeckCards[key].defender.map((card: CardInfo) => card.card)}
+                    {missionDeckCards[key].defender.map((card: CardInfo) => <div className={cardStyles.cardListContainer}>{card.card}</div>)}
                   </div>
                 </>
                 :
                 <div key={`${capitalizeEachWord(key, "-")}-card-list`} className={cardStyles.cardList}>
-                  {missionDeckCards[key].map((card: CardInfo) => card.card)}
+                  {missionDeckCards[key].map((card: CardInfo) => <div className={cardStyles.cardListContainer}>{card.card}</div>)}
                 </div>
               }
             </ScrollArea>
