@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image";
 import { Button, Title } from "@mantine/core"
 
 export default function HomePage() {
@@ -11,13 +12,25 @@ export default function HomePage() {
         <Title order={3} size="22pt">
           Frodo's Warhammer 40K App
         </Title>
-        < br/>
+        <br />
+        <Image
+          src="/frodo_irl.jpg"
+          alt="© Steve Downer, 2018"
+          aria-label="© Steve Downer, 2018"
+          width={394}
+          height={464}
+          style={{ borderRadius: 10 }}
+        />
+        <br /><br />
         <p>
-          It's very much still a work in progress, there will be more to come.<br />
-          Right now, all you can do is view the mission decks:<br /><br />
+          <Link href="/match/">
+            <Button size="xl" style={{ marginRight: 20 }}>
+              Play a Match
+            </Button>
+          </Link>
           <Link href="/cards/">
             <Button size="xl">
-              Mission Decks
+              View Mission Decks
             </Button>
           </Link>
         </p>

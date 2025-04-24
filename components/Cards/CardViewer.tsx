@@ -9,7 +9,7 @@ import styles from "@/css/CardViewer.module.css"
 // Edit HTMLElementEventMap so knows to expect a custom event on 'card-viewer-modal-button-click'
 declare global {
   interface HTMLElementEventMap {
-      'card-viewer-modal-button-click': CustomEvent;
+    'card-viewer-modal-button-click': CustomEvent;
   }
 }
 
@@ -21,7 +21,8 @@ export default function CardViewer({
   pariahNexusCards?: MissionDeckCards | null | undefined
 }) : React.ReactNode {
   const [opened, { open, close }] = useDisclosure(false)
-  const [modalContent, setModalContent] = useState(<div />)
+  const [modalContent, setModalContent] = useState<React.ReactNode>(<div />)
+  const [orientation, setOrientation] = useState<"landscape" | "portrait">("portrait")
 
   const openModal = useCallback((event: CustomEvent) => {
     const {
@@ -40,22 +41,21 @@ export default function CardViewer({
        card sections are shuffled. Using find() allows direct lookup instead of array indexing. */
     let newModalContent = null
     if (missionDeckName === "Leviathan" && leviathanCards) {
-      if (cardType === null) {
+      if (cardType === null)
         newModalContent = leviathanCards[missionDeckSection].find((card: CardInfo) => card.cardIndex === cardIndex)
-      } else {
+      else
         newModalContent = leviathanCards[missionDeckSection][cardType].find((card: CardInfo) => card.cardIndex === cardIndex)
-      }
     }
     else if (missionDeckName === "Pariah Nexus" && pariahNexusCards) {
-      if (cardType === null) {
+      if (cardType === null)
         newModalContent = pariahNexusCards[missionDeckSection].find((card: CardInfo) => card.cardIndex === cardIndex)
-      } else {
+      else
         newModalContent = pariahNexusCards[missionDeckSection][cardType].find((card: CardInfo) => card.cardIndex === cardIndex)
-      }
     }
 
+    setOrientation(missionDeckSection === "layouts" ? "landscape" : "portrait")
     setModalContent(
-      <div className={styles.cardInModal}>
+      <div className={`${styles.cardInModal} ${missionDeckSection === "layouts" ? styles.cardInModalLandscape : ""}`}>
         {newModalContent.card}
       </div>
     )
@@ -86,7 +86,7 @@ export default function CardViewer({
         withCloseButton={false}
         radius={0}
         transitionProps={{ transition: 'fade', duration: 200 }}
-        className={styles.cardModal}
+        className={orientation === "portrait" ? styles.cardModal : styles.cardModalLandscape}
         removeScrollProps={{ removeScrollBar: true }}
       >
         <div id="modal-content">

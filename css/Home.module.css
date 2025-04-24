@@ -51,5 +51,6 @@
   :global(.mantine-Anchor-root) {
     font-family: Conduit ITC;
     font-size: 16pt;
+    color: light-dark(var(--mantine-primary-color-9), var(--mantine-primary-color-1));
   }
 }

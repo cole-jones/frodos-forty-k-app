@@ -23,14 +23,33 @@
   }
 }
 
+.cardModalLandscape {
+  padding: 0;
+  :global(.mantine-Modal-root),
+  :global(.mantine-Modal-content) {
+    overflow: hidden;
+    height: calc(var(--layout-height) * var(--card-modal-scale));
+    width: calc(var(--layout-width) * var(--card-modal-scale));
+    background-color: transparent;
+    flex: none;
+  }
+  :global(.mantine-Modal-body) {
+    padding: 0;
+  }
+}
+
 .cardInModal {
   display: flex;
   height: var(--card-height);
   width: var(--card-width);
-  padding: var(--card-margin) * -1;
   transition: transform 0.1s ease-in-out;
   transform: scale(var(--card-modal-scale));
   transform-origin: top left;
+}
+
+.cardInModalLandscape {
+  height: var(--layout-height) !important;
+  width: var(--layout-width) !important;
 }
 
 .cardInModal > button > div {
@@ -55,4 +74,14 @@
   &:hover {
     cursor: text !important;
   }
+}
+
+/* Card hover viewer in Match.tsx */
+.cardTooltip {
+  transform: scale(1.2);
+  transform-origin: top left;
+}
+
+.cardTooltipLabel {
+  border-bottom: 1px dashed;
 }

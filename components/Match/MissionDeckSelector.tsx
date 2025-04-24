@@ -30,7 +30,7 @@ export default async function MissionDeckSelector(section: "cards" | "match") : 
           </MissionDeckSelectorButton>
         </Link>
         <div className={styles.missionDeckSelectorSpacer} />
-        <Link href={`/${section}/pariah-nexus`} style={{ textDecoration: 'none' }}>
+        <Link href={`/${section}/pariah-nexus`}>
           <MissionDeckSelectorButton missionDeck="Pariah Nexus">
             <Image
               src="/cards/pariah_nexus/Pariah_Nexus_Box.jpg"

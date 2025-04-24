@@ -1,0 +1,432 @@
+.page {
+  border: 2px solid light-dark(var(--mantine-color-primary-9), var(--mantine-color-primary-0));
+  border-radius: 8px;
+  margin-left: 8px;
+  margin-right: 8px;
+  flex: 1 1 auto;
+  max-width: calc(100% - 416px);
+  min-width: 400px;
+}
+
+/* app\match\[mission_deck]\page.tsx */
+.matchPage {
+  display: flex;
+  height: var(--app-body-height);
+  width: var(--app-body-width-noscroll)
+}
+
+/* Match.tsx */
+.matchContainer {
+  border: 2px solid light-dark(var(--mantine-color-primary-9), var(--mantine-color-primary-0));
+  border-radius: 8px;
+  margin-left: 8px;
+  margin-right: 8px;
+  flex: 1 1 auto;
+  max-width: calc(100% - 416px);
+  min-width: 400px;
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.missionSetupTitle {
+  text-align: center;
+  height: 50px;
+  line-height: 0px;
+  margin-bottom: 8px;
+}
+
+.cardHolderContainer {
+  border: 2px solid;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+.cardHolderContainerLabel {
+  margin-left: 28px;
+  margin-top: -6px;
+  margin-bottom: -14px;
+  text-align: center;
+  color: light-dark(var(--mantine-color-headers-0), var(--mantine-color-headers-2));
+}
+.cardHolderContainerLabelNoActions {
+  margin-top: -6px;
+  margin-bottom: -14px;
+  text-align: center;
+  color: light-dark(var(--mantine-color-headers-0), var(--mantine-color-headers-2));
+}
+.cardHolderContainerLabelAttacker {
+  color: light-dark(var(--mantine-color-attacker-0), var(--mantine-color-attacker-0));
+}
+.cardHolderContainerLabelDefender {
+  color: light-dark(var(--mantine-color-defender-0), var(--mantine-color-defender-0));
+}
+.cardHolderContainerLeft {
+  padding: 12px 10px 12px 12px;
+  flex-direction: row;
+  margin-left: 28px;
+}
+.cardHolderContainerRight {
+  padding: 12px 12px 12px 10px;
+  flex-direction: row-reverse;
+  margin-right: 28px;
+}
+.cardHolderContainerTertiary {
+  padding: 12px 12px 12px 10px;
+  flex-direction: row-reverse;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+.cardHolderContainerNeutral {
+  border-color: var(--mantine-color-headers-0);
+}
+.cardHolderContainerAttacker {
+  border-color: var(--mantine-color-attacker-0);
+}
+.cardHolderContainerDefender {
+  border-color: var(--mantine-color-defender-0);
+}
+
+.cardHolderButtonGroup {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.cardHolderButtonGroupLeft {
+  margin-left: -37px;
+  margin-right: 0px;
+}
+.cardHolderButtonGroupRight {
+  margin-left: 0px;
+  margin-right: -37px;
+}
+
+.cardHolderButtonContainer {
+  padding: 4px;
+  background-color: light-dark(var(--mantine-color-primary-4), var(--mantine-color-primary-7));
+}
+
+.cardHolderSpacer {
+  width: 6px;
+}
+
+.cardHolderCardContainer {
+  height: var(--card-height);
+  width: var(--card-width);
+}
+
+.cardHolderCardContainerLayout {
+  height: var(--card-height);
+  width: var(--card-width);
+  & > button {
+    transform: rotate(-90deg) translate(-90px, -52px);
+  }
+}
+
+.cardHolderSelect {
+  width: 80%;
+  margin-top: 6px;
+  margin-left: 46px;
+}
+
+.cardHolderTertiaryMissionButtons {
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.cardHolderButtonTooltip {
+  transform: scale(1.25);
+  transform-origin: top left;
+}
+
+.actionButton {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+}
+.actionButtonNeutral {
+  background-color: var(--mantine-color-headers-0);
+  &:hover {
+    background-color: var(--mantine-color-headers-1)
+  }
+}
+.actionButtonAttacker {
+  background-color: var(--mantine-color-attacker-1);
+  &:hover {
+    background-color: var(--mantine-color-attacker-0);
+  }
+}
+.actionButtonDefender {
+  background-color: var(--mantine-color-defender-1);
+  &:hover {
+    background-color: var(--mantine-color-defender-0);
+  }
+}
+
+.matchCardHolderContainer {
+  width: 100%;
+  max-width: 1500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.matchCardHolderContainerScaler {
+  transform-origin: top;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: -1000px;
+  margin-right: -1000px;
+  margin-bottom: -136px;
+  margin-top: -10px;
+}
+
+.preMatchCardHolderContainer {
+  width: fit-content;
+}
+
+.matchCardHolder {
+  display: flex;
+  flex-direction: row;
+}
+
+.matchCardHolderSpacer {
+  width: 16px;
+}
+
+.matchCardHolderSpacerLarge {
+  width: 26px;
+}
+
+.matchFinalizeButtonContainer {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 300px;
+}
+
+.tertiaryMissionCardContainer {
+  width: var(--card-width);
+  height: var(--card-height);
+  &:hover {
+    & > div {
+      transform: scale(var(--card-hover-scale));
+    }
+  }
+}
+
+.tertiaryMissionCardBackOverlay {
+  width: var(--card-width);
+  height: var(--card-height);
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 10000;
+  pointer-events: none;
+  transition: transform 0.1s ease-in-out;
+  border-radius: var(--card-border-radius);
+}
+
+/* ScoreTracker.tsx */
+.scoreTrackerContainer {
+  border: 2px solid light-dark(var(--mantine-color-primary-9), var(--mantine-color-primary-0));
+  border-radius: 8px;
+  flex-shrink: 0;
+  height: 100%;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Conduit ITC';
+
+  padding: 2px;
+  & > span,
+  & > div > span,
+  & > div > div > span {
+    font-family: 'Conduit ITC Bold';
+  }
+}
+.scoreTrackerContainerAttacker {
+  border-color: light-dark(var(--mantine-color-attacker-0), var(--mantine-color-attacker-0));
+}
+.scoreTrackerContainerDefender {
+  border-color: light-dark(var(--mantine-color-defender-0), var(--mantine-color-defender-0));
+}
+
+.scoreTrackerMissionSetupTableScrollArea {
+  border: 2px solid light-dark(var(--mantine-color-primary-9), var(--mantine-color-primary-0));
+  border-radius: 8px;
+  padding: 10px;
+  height: 30%;
+}
+
+.scoreTrackerPlayer {
+  font-family: 'Conduit ITC Bold';
+  font-size: 24pt;
+  width: 100%;
+  text-align: center;
+}
+.scoreTrackerPlayerAttacker {
+  color: var(--mantine-color-attacker-0)
+}
+.scoreTrackerPlayerDefender {
+  color: var(--mantine-color-defender-0)
+}
+
+.scoreTrackerCommandPointsGroup {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 10px;
+}
+
+.scoreTrackerCommandPoints {
+  text-align: center;
+  line-height: 18px;
+  font-family: 'Conduit ITC Bold';
+  font-size: 14pt;
+}
+
+.scoreTrackerTotalsContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.scoreTrackerSumGroup {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.scoreTrackerTotal {
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.scoreTrackerTextareaContainer {
+  width: 100%;
+  flex-grow: 1;
+}
+
+.scoreTrackerTextareaWrapper {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.scoreTrackerTextareaInput {
+  color: var(--mantine-color-text);
+  background-color: light-dark(var(--mantine-color-primary-5), var(--mantine-color-primary-6));
+  height: 100% !important;
+  padding: 4px;
+  &::placeholder {
+    color: light-dark(var(--mantine-color-primary-9), var(--mantine-color-primary-0));
+  }
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 8px;
+    background-color: light-dark(var(--mantine-color-primary-4), var(--mantine-color-primary-7));
+    border: 1px solid light-dark(var(--mantine-color-primary-5), var(--mantine-color-primary-6));
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+    background-color: light-dark(var(--mantine-color-primary-9), var(--mantine-color-primary-0));
+  }
+}
+
+.scoreTrackerScoreContainer {
+  padding-left: 1.5px;
+  padding-right: 1.5px;
+  height: 24;
+  font-size: 16pt;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.scoreTrackerScoreContainerCommand {
+  height: 30px;
+  justify-content: center;
+}
+
+.scoreTrackerScoreSpacer {
+  width: 2px;
+}
+
+.scoreTrackerDigit {
+  border: 1px solid light-dark(var(--mantine-color-primary-9), var(--mantine-color-primary-0));
+  border-radius: 4px;
+  height: 22px;
+  width: 22px;
+  line-height: 20px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.scoreTrackerDigitCommand {
+  height: 30px;
+  width: 30px;
+  line-height: 27px;
+  font-size: 26pt;
+}
+
+.scoreTrackerButtonsContainer {
+  width: 49%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.scoreTrackerButtonsContainerCommand {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.scoreTrackerButton {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  min-height: 22px;
+  padding: 0px;
+}
+
+.scoreTrackerButtonCommand {
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  padding: 0px;
+}
+
+.scoreTrackerButtonGroupContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.scoreTrackerButtonGroup {
+  padding: 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

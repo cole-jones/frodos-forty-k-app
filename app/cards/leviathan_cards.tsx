@@ -291,6 +291,7 @@ const leviathanPrimaryMissionCards: Array<MissionCard> = [
           features (such as the walls of a ruin).
         </Paragraph>
         <Header
+          lessTopMargin
           leviathan
           text="In the second, third, fourth and fifth battle rounds:"
         />
@@ -330,6 +331,7 @@ const leviathanPrimaryMissionCards: Array<MissionCard> = [
         </Paragraph>
 
         <Header
+          lessTopMargin
           leviathan
           text="At the end of the battle:"
         />
@@ -357,12 +359,14 @@ const leviathanPrimaryMissionCards: Array<MissionCard> = [
         </Paragraph>
         
         <Header
+          lessTopMargin
           leviathan
           text="In the fifth battle round:"
         />
         <List
           extraSmall
           extraTopMargin
+          lessBottomMargin
           items={[
             <>The player who has the first turn scores VP as<br />described above.</>,
             <>The player who has the second turn scores VP as described above, but does so at the end of their turn instead of at the end of their Command phase.</>,
@@ -409,6 +413,7 @@ const leviathanPrimaryMissionCards: Array<MissionCard> = [
         </Paragraph>
 
         <Header
+          lessTopMargin
           leviathan
           text="In the second, third and fourth battle rounds:"
         />
@@ -418,6 +423,7 @@ const leviathanPrimaryMissionCards: Array<MissionCard> = [
         </Paragraph>
         
         <Header
+          lessTopMargin
           leviathan
           text="In the fifth battle round:"
         />
@@ -451,6 +457,7 @@ const leviathanPrimaryMissionCards: Array<MissionCard> = [
         </Paragraph>
         
         <Header
+          lessTopMargin
           leviathan
           text="In the second, third and fourth battle rounds:"
         />
@@ -460,12 +467,14 @@ const leviathanPrimaryMissionCards: Array<MissionCard> = [
         </Paragraph>
         
         <Header
+          lessTopMargin
           leviathan
           text="In the fifth battle round:"
         />
         <List
           extraSmall
           extraTopMargin
+          lessBottomMargin
           items={[
             <>The player who has the first turn scores VP as<br />described above.</>,
             <>The player who has the second turn scores VP as<br />described above, but does so at the end of their turn instead of at the end of their Command phase.</>,
@@ -502,6 +511,7 @@ const leviathanPrimaryMissionCards: Array<MissionCard> = [
         </Paragraph>
 
         <Header
+          lessTopMargin
           leviathan
           text="In the second, third and fourth battle rounds:"
         />
@@ -523,6 +533,7 @@ const leviathanPrimaryMissionCards: Array<MissionCard> = [
         </Paragraph>
 
         <Header
+          lessTopMargin
           leviathan
           text="In the fifth battle round:"
         />
@@ -553,6 +564,7 @@ const leviathanPrimaryMissionCards: Array<MissionCard> = [
         </Paragraph>
         
         <Header
+          lessTopMargin
           leviathan
           text="In the second and third battle rounds:"
         />
@@ -562,6 +574,7 @@ const leviathanPrimaryMissionCards: Array<MissionCard> = [
         </Paragraph>
 
         <Header
+          lessTopMargin
           leviathan
           text="In the fourth battle round:"
         />
@@ -571,6 +584,7 @@ const leviathanPrimaryMissionCards: Array<MissionCard> = [
         </Paragraph>
         
         <Header
+          lessTopMargin
           leviathan
           text="In the fifth battle round:"
         />
@@ -603,6 +617,7 @@ const leviathanPrimaryMissionCards: Array<MissionCard> = [
         </Paragraph>
         
         <Header
+          lessTopMargin
           leviathan
           text="In the fifth battle round:"
         />
@@ -634,6 +649,7 @@ const leviathanPrimaryMissionCards: Array<MissionCard> = [
         </Paragraph>
         
         <Header
+          lessTopMargin
           leviathan
           text="In the second, third and fourth battle rounds:"
         />
@@ -643,6 +659,7 @@ const leviathanPrimaryMissionCards: Array<MissionCard> = [
         </Paragraph>
         <List
           extraSmall
+          lessBottomMargin
           items={[
             "If they control the objective marker in their own deployment zone, they score 2VP.",
             "For each objective marker in No Man's Land that they control, they score 5VP.",
@@ -1027,8 +1044,8 @@ const leviathanSecondaryMissionCards: Array<MissionCard> = [
         </Paragraph>
         <List
           items={[
-            "You control one or more objective markers that were controlled by your opponent at the start of your turn.",
-            "Your opponent did not control any objective markers at the start of your turn and you control one or more objective markers that you did not control at the start of your turn.",
+            <>You control one or more objective markers that<br />were controlled by your opponent at the start of your turn.</>,
+            <>Your opponent did not control any objective markers at the start of your turn and you control one or more objective markers that you did not control at the start of your turn.</>,
           ]}
         />
         <Paragraph>
@@ -1139,7 +1156,7 @@ const leviathanGambitCards: Array<MissionCard> = [
   {
     isFixed: false,
     section: "gambits",
-    title: "Proceed as planned",
+    title: "Proceed as Planned",
     flavor: "Your battle plan is unfolding as you had foreseen, and the time to strike the fatal blow is almost at hand. Stay the course, and victory is all but assured.",
     body: (
       <>
