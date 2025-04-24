@@ -22,6 +22,7 @@ export default function CardViewer({
 }) : React.ReactNode {
   const [opened, { open, close }] = useDisclosure(false)
   const [modalContent, setModalContent] = useState<React.ReactNode>(<div />)
+  const [orientation, setOrientation] = useState<"landscape" | "portrait">("portrait")
 
   const openModal = useCallback((event: CustomEvent) => {
     const {
@@ -52,8 +53,9 @@ export default function CardViewer({
         newModalContent = pariahNexusCards[missionDeckSection][cardType].find((card: CardInfo) => card.cardIndex === cardIndex)
     }
 
+    setOrientation(missionDeckSection === "layouts" ? "landscape" : "portrait")
     setModalContent(
-      <div className={styles.cardInModal}>
+      <div className={`${styles.cardInModal} ${missionDeckSection === "layouts" ? styles.cardInModalLandscape : ""}`}>
         {newModalContent.card}
       </div>
     )
@@ -84,7 +86,7 @@ export default function CardViewer({
         withCloseButton={false}
         radius={0}
         transitionProps={{ transition: 'fade', duration: 200 }}
-        className={styles.cardModal}
+        className={orientation === "portrait" ? styles.cardModal : styles.cardModalLandscape}
         removeScrollProps={{ removeScrollBar: true }}
       >
         <div id="modal-content">

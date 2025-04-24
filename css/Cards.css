@@ -2,6 +2,8 @@
 html {
   --card-width: 254px;
   --card-height: 440px;
+  --layout-width: 363px; /*482px;*/
+  --layout-height: 254px; /*354px;*/
   --card-margin: 10px;
   --card-hover-scale: 1.04;
   --card-modal-scale: 1.934; /*1.935;*/

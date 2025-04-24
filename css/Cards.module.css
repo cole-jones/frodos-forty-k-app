@@ -13,6 +13,11 @@
   margin-bottom: 6px;
 }
 
+.layoutImg {
+  height: var(--layout-height);
+  width: var(--layout-width);
+}
+
 .cardContainer {
   position: relative;
   flex-shrink: 0;

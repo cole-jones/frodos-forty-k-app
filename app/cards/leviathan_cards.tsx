@@ -1156,7 +1156,7 @@ const leviathanGambitCards: Array<MissionCard> = [
   {
     isFixed: false,
     section: "gambits",
-    title: "Proceed as planned",
+    title: "Proceed as Planned",
     flavor: "Your battle plan is unfolding as you had foreseen, and the time to strike the fatal blow is almost at hand. Stay the course, and victory is all but assured.",
     body: (
       <>

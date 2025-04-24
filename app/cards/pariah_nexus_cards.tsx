@@ -217,7 +217,7 @@ const pariahNexusMissionRuleCards: Array<MissionCard> = [
   {
     isFixed: false,
     section: "missionRules",
-    title: "Smoke And Mirrors",
+    title: "Smoke and Mirrors",
     flavor: "Be it through technological trickery, sorcerous illusion or  sheer  cunning, both commanders seek to outfox and outmanoeuvre the other.",
     body: (
       <>
@@ -336,7 +336,8 @@ const pariahNexusPrimaryMissionCards: Array<MissionCard> = [
         <Paragraph extraSmall tight extraSquished>
           If the player whose turn it is controls the objective marker<br />
           in their deployment zone, they score <Strong bold text="3VP" /> for controlling<br />
-          that objective marker, and <Strong bold text="5VP" /> for each other objective marker they control.
+          that objective marker, and <Strong bold text="5VP" /> for each other objective marker they control
+          (up to <Strong bold text="15VP" /> per turn).
         </Paragraph>
         <Separator pariahNexus />
       </>
@@ -1446,6 +1447,22 @@ const pariahNexusSecretMissionCards: Array<MissionCard> = [
           />
         </PointsParagraph>
         <Separator pariahNexus />
+      </>
+    )
+  },
+  {
+    isFixed: false,
+    section: "secretMissions",
+    title: "Proceed as Planned",
+    flavor: "Your battle plan is unfolding as you had foreseen, and the time to strike the fatal blow is almost at hand. Stay the course, and victory is all but assured.",
+    body: (
+      <>
+        <Paragraph>
+          If you select this Secret Mission card, you have chosen not to attempt a secret mission.
+        </Paragraph>
+        <Paragraph>
+          Until the end of the battle, you continue to score VP from your Primary Mission.
+        </Paragraph>
       </>
     )
   },
