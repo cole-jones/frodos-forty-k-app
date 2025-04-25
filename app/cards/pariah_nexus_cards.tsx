@@ -1329,7 +1329,7 @@ const pariahNexusSecondaryMissionCards: Array<MissionCard> = [
 
 const pariahNexusSecretMissionCards: Array<MissionCard> = [
   {
-    isFixed: true,
+    isFixed: false,
     section: "secretMissions",
     title: "Command Insertion",
     flavor: "Sometimes vital tasks cannot be entrusted to underlings. At such times, a commander must lead by example, bloodying their own hands to achieve victory.",
